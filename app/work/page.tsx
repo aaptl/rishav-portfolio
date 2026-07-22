@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
@@ -28,6 +29,7 @@ const PROJECTS = [
     image: "/images/work-pawle.png",
     imageAlt: "Pawle pet care app — mobile booking, health overview, and shop screens",
     imageLeft: true,
+    href: "/work/pawle",
   },
   {
     tag: "02 / UX DESIGN / WEB / SAAS",
@@ -36,6 +38,7 @@ const PROJECTS = [
     image: "/images/work-wiser.png",
     imageAlt: "Pet health overview dashboard on a tablet — wellness scores and health metrics",
     imageLeft: false,
+    href: "/work/wiser-solutions",
   },
   {
     tag: "03 / UX DESIGN / AI / WEB PRODUCT",
@@ -44,6 +47,7 @@ const PROJECTS = [
     image: "/images/work-suchamai.png",
     imageAlt: "Suchama AI — supply chain planning website and AI assistant interface",
     imageLeft: true,
+    href: "/work/suchamai-ai",
   },
   {
     tag: "04 / BRAND / WEB DESIGN / NO-CODE",
@@ -52,6 +56,7 @@ const PROJECTS = [
     image: "/images/work-selectr.png",
     imageAlt: "Slide Coach Ai — brand and web design showcase",
     imageLeft: false,
+    href: null,
   },
   {
     tag: "05 / AI PRODUCT / UX / SYSTEMS",
@@ -60,6 +65,7 @@ const PROJECTS = [
     image: "/images/work-trovex.png",
     imageAlt: "Trovex.ai — AI roleplay training platform hero with dashboard and live call UI",
     imageLeft: true,
+    href: "/work/trovex-ai",
   },
   {
     tag: "06 / CONSUMER APP / UX / BRAND",
@@ -68,6 +74,7 @@ const PROJECTS = [
     image: "/images/work-mobee.png",
     imageAlt: "Mobee — cashback shopping app screens with map-based nearby offers",
     imageLeft: false,
+    href: "/work/mobee",
   },
 ];
 
@@ -126,12 +133,21 @@ export default function WorkPage() {
                   {project.title}
                 </h2>
                 <p className="mt-4 text-lg leading-[29px] text-[#555555]">{project.body}</p>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
-                >
-                  Explore Project <span aria-hidden>→</span>
-                </a>
+                {project.href ? (
+                  <Link
+                    href={project.href}
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
+                  >
+                    Explore Project <span aria-hidden>→</span>
+                  </Link>
+                ) : (
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
+                  >
+                    Explore Project <span aria-hidden>→</span>
+                  </a>
+                )}
               </div>
             </article>
           ))}
