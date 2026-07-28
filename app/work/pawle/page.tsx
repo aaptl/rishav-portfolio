@@ -668,7 +668,7 @@ export default function PawlePage() {
 
       <CaseStudyNav currentSlug="pawle" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

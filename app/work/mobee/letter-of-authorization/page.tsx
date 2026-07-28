@@ -166,7 +166,7 @@ export default function MobeeLoaPage() {
 
       <CaseStudyNav currentSlug="mobee" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

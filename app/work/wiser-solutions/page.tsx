@@ -67,7 +67,7 @@ export default function WiserSolutionsPage() {
           { label: "Year", value: "2024" },
         ]}
         heroImage="/images/work-wiser.png"
-        heroImageAlt="Pet health overview dashboard on a tablet — wellness scores and health metrics"
+        heroImageAlt="Wiser design system — component library and multi-product UI foundations"
       />
 
       <section className="relative bg-paper px-6 py-16 sm:px-10 lg:px-20">
@@ -240,7 +240,7 @@ export default function WiserSolutionsPage() {
 
       <CaseStudyNav currentSlug="wiser-solutions" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

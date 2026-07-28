@@ -419,7 +419,7 @@ export default function TrovexAiPage() {
 
       <CaseStudyNav currentSlug="trovex-ai" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

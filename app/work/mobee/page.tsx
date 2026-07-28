@@ -91,7 +91,7 @@ export default function MobeePage() {
 
       <CaseStudyNav currentSlug="mobee" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

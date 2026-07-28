@@ -169,7 +169,7 @@ export default function MobeeBonusImplementationPage() {
 
       <CaseStudyNav currentSlug="mobee" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

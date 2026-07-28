@@ -34,9 +34,9 @@ const PROJECTS = [
   {
     tag: "02 / UX DESIGN / WEB / SAAS",
     title: "Wiser Solutions",
-    body: "Reimagining pet health management through data-driven, empathic design for the modern pet owner.",
+    body: "A scalable UI component system unifying multiple products — 200+ components, atomic design methodology.",
     image: "/images/work-wiser.png",
-    imageAlt: "Pet health overview dashboard on a tablet — wellness scores and health metrics",
+    imageAlt: "Wiser design system — component library and multi-product UI foundations",
     imageLeft: false,
     href: "/work/wiser-solutions",
   },
@@ -155,7 +155,7 @@ export default function WorkPage() {
       </section>
 
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }

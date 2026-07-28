@@ -71,9 +71,9 @@ const WORK_PROJECTS = [
   {
     tag: "02 / UX DESIGN / WEB / SAAS",
     title: "Wiser Solutions",
-    body: "Reimagining pet health management through a data-driven, empathic interface for the modern pet owner.",
+    body: "Unifying multiple products under one scalable design system — 200+ components built for consistency and speed.",
     image: "/images/card-mobee.png",
-    imageAlt: "Mobee consumer app — cashback shopping screens with location-based offers",
+    imageAlt: "Wiser design system — component library and multi-product UI foundations",
     imageLeft: false,
   },
   {
@@ -285,7 +285,7 @@ export default function HomePage() {
       </section>
 
       {/* The full range */}
-      <section className="bg-ink px-6 py-16 sm:px-10 lg:px-[72px] lg:py-[72px]">
+      <section className="bg-navy px-6 py-16 sm:px-10 lg:px-[72px] lg:py-[72px]">
         <div className="rounded-2xl bg-[#141414] p-4 sm:p-8">
           <div className="grid items-center gap-12 rounded-2xl p-4 sm:p-8 lg:grid-cols-[550px_1fr]">
             <div className="grid grid-cols-2 sm:grid-cols-3">
@@ -332,7 +332,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer variant="home" />
+      <Footer />
       <CtaStrip />
     </main>
   );

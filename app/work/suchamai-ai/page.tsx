@@ -333,7 +333,7 @@ export default function SuchamaiAiPage() {
 
       <CaseStudyNav currentSlug="suchamai-ai" />
       <CtaStrip outlineButton />
-      <Footer variant="home" />
+      <Footer />
     </main>
   );
 }
