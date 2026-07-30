@@ -150,7 +150,18 @@ export default function MobeeBonusImplementationPage() {
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
           <SectionHeader eyebrow="04 · Outcome & Impact" title="Scheduled deployment: Q4 2024." />
-          <div className="mt-10">
+          <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-[#dedcd4] bg-white p-5">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-[#888888]">Before</p>
+              <p className="mt-1 text-sm font-medium text-ink">Passive email blasts with low engagement</p>
+            </div>
+            <span aria-hidden className="text-[#aaaaaa]">→</span>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-[#888888]">After</p>
+              <p className="mt-1 text-sm font-medium text-ink">Active in-app bonus highlights driving completion</p>
+            </div>
+          </div>
+          <div className="mt-8">
             <StatRow
               stats={[
                 { value: "62%", label: "Preferred by Users", body: "Bonus-tagged missions chosen over non-bonus at a higher rate." },

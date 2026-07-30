@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
+import CtaStrip from "@/components/CtaStrip";
 
 export const metadata: Metadata = {
   title: "Archive",
@@ -133,6 +134,7 @@ export default function ArchivePage() {
         <div className="h-16" />
       </section>
 
+      <CtaStrip />
       <Footer />
     </main>
   );

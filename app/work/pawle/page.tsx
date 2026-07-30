@@ -31,7 +31,6 @@ const OWNED = [
   "Product Strategy",
   "Product Discovery",
   "User Research",
-  "Information Architecture",
   "Product Architecture",
   "Design System",
   "UX Design",
@@ -118,6 +117,91 @@ const COLOR_TOKENS = [
   { name: "Action Red", hex: "#E7000B", usage: "Emergency, Critical" },
   { name: "Neutral-900", hex: "#101828", usage: "Primary Typography" },
   { name: "Neutral-600", hex: "#475467", usage: "Secondary labels" },
+  { name: "Neutral-100", hex: "#F2F4F7", usage: "Dividers, light bgs" },
+  { name: "Pure White", hex: "#FFFFFF", usage: "Card surfaces" },
+];
+
+const TYPOGRAPHY_SCALE = [
+  {
+    name: "Display",
+    spec: "36 / 800",
+    sample: "Design systems before screens.",
+    className: "text-4xl font-extrabold",
+  },
+  {
+    name: "Heading",
+    spec: "24 / 600",
+    sample: "A consistent hierarchy for every screen.",
+    className: "text-2xl font-semibold",
+  },
+  {
+    name: "Body",
+    spec: "16 / 400",
+    sample:
+      "Body text is used for descriptions, helper text, and long-form content. It should be readable and comfortable at typical reading distances.",
+    className: "text-base font-normal",
+  },
+  {
+    name: "Caption",
+    spec: "12 / 500",
+    sample:
+      "Caption text is used for metadata, timestamps, and secondary labels. It provides context without competing with primary content.",
+    className: "text-xs font-medium",
+  },
+];
+
+const SPACING_SCALE = [
+  { px: 4, label: "xs", usage: "icon gaps" },
+  { px: 8, label: "sm", usage: "label spacing" },
+  { px: 12, label: "md", usage: "card internals" },
+  { px: 16, label: "base", usage: "screen margins" },
+  { px: 24, label: "xl", usage: "section breaks" },
+  { px: 32, label: "2xl", usage: "component gaps" },
+  { px: 48, label: "3xl", usage: "section padding" },
+  { px: 64, label: "4xl", usage: "major breaks" },
+];
+
+const GRID_BREAKPOINTS = [
+  { name: "Desktop", range: "1200px+", columns: 12 },
+  { name: "Tablet", range: "768–1199px", columns: 8 },
+  { name: "Mobile", range: "<768px", columns: 4 },
+];
+
+const COLOR_COMBINATIONS = [
+  { name: "Primary Blue", hex: "#3F8CC4", usage: "Primary CTA", body: "Use for primary actions and emphasis.", badge: "✓" },
+  { name: "Health Green", hex: "#10B981", usage: "Success state", body: "Use for verification and confirmation.", badge: "✓" },
+  { name: "Mating Pink", hex: "#E91E8C", usage: "Match highlight", body: "Use for matchmaking emphasis.", badge: "✓" },
+  {
+    name: "Neutral-900",
+    hex: "#101828",
+    usage: "Primary text",
+    body: "Use for headings and body copy.",
+    badge: "✓",
+    ratio: "14.1:1",
+  },
+  {
+    name: "Neutral-600",
+    hex: "#475467",
+    usage: "Secondary label",
+    body: "Use for helper text and metadata.",
+    badge: "AA",
+    ratio: "5.1:1",
+  },
+  {
+    name: "Neutral-100",
+    hex: "#F2F4F7",
+    usage: "Divider / surface",
+    body: "Use for subtle separation.",
+    badge: "Fail",
+    ratio: "2.1:1",
+  },
+];
+
+const A11Y_STANDARDS = [
+  { title: "Visible focus states", body: "Interactive elements show a clear focus ring for keyboard navigation." },
+  { title: "Color contrast", body: "Text meets WCAG 2.1 AA requirements (4.5:1 normal, 3:1 large)." },
+  { title: "Touch targets", body: "Interactive elements meet the 44×44px minimum touch target size." },
+  { title: "Semantic HTML", body: "Proper HTML structure and ARIA attributes support assistive technologies." },
 ];
 
 const PLATFORM_MODULES = [
@@ -485,7 +569,7 @@ export default function PawlePage() {
           colour became a token. Every spacing value became a scale. Every interaction became reusable — allowing
           191 screens to be designed with minimal visual drift.
         </p>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {COLOR_TOKENS.map((token) => (
             <div key={token.name} className="flex items-center gap-4 rounded-xl border border-white/10 p-4">
               <span
@@ -502,10 +586,211 @@ export default function PawlePage() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-sm text-white/50">
-          The 4px base spacing unit: 4 / 8 / 12 / 16 / 20 / 24px — every value is a multiple, from icon gaps to
-          section breaks.
-        </p>
+
+        {/* Typography Scale */}
+        <div className="mt-16">
+          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- Typography Scale</p>
+          <div className="mt-6 divide-y divide-white/10 rounded-2xl border border-white/10">
+            {TYPOGRAPHY_SCALE.map((type) => (
+              <div key={type.name} className="p-6">
+                <div className="flex items-baseline justify-between">
+                  <p className="text-sm font-semibold text-[#3F8CC4]">{type.name}</p>
+                  <p className="text-xs text-white/40">{type.spec}</p>
+                </div>
+                <p className={`mt-3 max-w-[720px] text-white ${type.className}`}>{type.sample}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Component Library Sample */}
+        <div className="mt-16">
+          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- Component Library Sample</p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 p-6">
+              <p className="text-sm font-semibold text-[#3F8CC4]">Primary Button</p>
+              <p className="text-xs text-white/40">Default / Pressed / Disabled</p>
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <span className="rounded-xl bg-[#3F8CC4] px-5 py-3 text-sm font-medium text-white">Confirm</span>
+                <span className="rounded-xl bg-[#1D4ED8] px-5 py-3 text-sm font-medium text-white">Confirm</span>
+                <span className="rounded-xl bg-white/10 px-5 py-3 text-sm font-medium text-white/30">Confirm</span>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 p-6">
+              <p className="text-sm font-semibold text-[#3F8CC4]">Service Card</p>
+              <p className="text-xs text-white/40">Available / Booked</p>
+              <div className="mt-5 space-y-3">
+                <div className="flex items-center justify-between rounded-xl bg-white/5 p-4">
+                  <div>
+                    <p className="text-sm font-medium text-white">Nail Trim</p>
+                    <p className="text-xs text-white/40">15 min • $25</p>
+                  </div>
+                  <span className="rounded-full bg-[#10B981]/15 px-3 py-1 text-xs font-medium text-[#10B981]">
+                    Available
+                  </span>
+                </div>
+                <div className="flex items-center justify-between rounded-xl bg-white/5 p-4">
+                  <div>
+                    <p className="text-sm font-medium text-white">Bath &amp; Brush</p>
+                    <p className="text-xs text-white/40">45 min • $65</p>
+                  </div>
+                  <span className="rounded-full bg-[#E7000B]/15 px-3 py-1 text-xs font-medium text-[#E7000B]">
+                    Booked
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 p-6">
+              <p className="text-sm font-semibold text-[#3F8CC4]">Input Field</p>
+              <p className="text-xs text-white/40">Empty / Filled / Error</p>
+              <div className="mt-5 space-y-3">
+                <input
+                  disabled
+                  placeholder="Email address"
+                  className="w-full rounded-xl border border-white/15 bg-transparent px-4 py-3 text-sm text-white/40 placeholder:text-white/40"
+                />
+                <input
+                  disabled
+                  value="alex@pawle.com"
+                  className="w-full rounded-xl border border-[#3F8CC4] bg-transparent px-4 py-3 text-sm text-white"
+                  readOnly
+                />
+                <div>
+                  <input
+                    disabled
+                    value="invalid"
+                    className="w-full rounded-xl border border-[#E7000B] bg-transparent px-4 py-3 text-sm text-white"
+                    readOnly
+                  />
+                  <p className="mt-1.5 text-xs text-[#E7000B]">Please enter a valid email.</p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 p-6">
+              <p className="text-sm font-semibold text-[#3F8CC4]">Tab Bar</p>
+              <p className="text-xs text-white/40">Active / Inactive</p>
+              <div className="mt-5 flex gap-2">
+                {["Home", "Bookings", "Profile"].map((tab, i) => (
+                  <span
+                    key={tab}
+                    className={`flex-1 rounded-xl py-3 text-center text-xs font-medium ${
+                      i === 0 ? "border border-[#3F8CC4] text-[#3F8CC4]" : "text-white/40"
+                    }`}
+                  >
+                    {tab}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Spacing System */}
+        <div className="mt-16">
+          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- Spacing System</p>
+          <p className="mt-4 max-w-[640px] text-sm text-white/50">
+            A 4px base unit. Every spacing value is a multiple of 4px.
+          </p>
+          <div className="mt-6 flex flex-wrap items-end gap-6 rounded-2xl border border-white/10 p-6">
+            {SPACING_SCALE.map((step) => (
+              <div key={step.px} className="flex flex-col items-center gap-2">
+                <div
+                  aria-hidden
+                  className="w-6 rounded-sm bg-[#3F8CC4]"
+                  style={{ height: `${Math.min(step.px, 64)}px` }}
+                />
+                <p className="text-xs text-white/50">{step.px}px</p>
+                <p className="text-[10px] uppercase tracking-wide text-white/30">
+                  {step.label} · {step.usage}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Design System — Reference Appendix */}
+      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
+        <div className="relative space-y-16">
+          <div>
+            <SectionHeader
+              eyebrow="Color Accessibility &amp; Combinations"
+              title="Pairings are designed to meet WCAG 2.1 AA contrast requirements."
+            />
+            <p className="mt-4 max-w-[640px] text-base leading-[27px] text-[#555555]">
+              Use these combinations for text on backgrounds.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {COLOR_COMBINATIONS.map((combo) => (
+                <div key={combo.usage} className="rounded-2xl border border-[#dedcd4] bg-white p-5">
+                  <div className="flex items-center gap-3">
+                    <span
+                      aria-hidden
+                      className="h-8 w-8 shrink-0 rounded-lg border border-[#dedcd4]"
+                      style={{ backgroundColor: combo.hex }}
+                    />
+                    <div>
+                      <p className="text-sm font-medium text-ink">{combo.name}</p>
+                      <p className="text-xs text-[#888888]">{combo.hex}</p>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm font-semibold text-ink">{combo.usage}</p>
+                  <p className="mt-1 text-[13px] text-[#555555]">{combo.body}</p>
+                  <p
+                    className={`mt-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium ${
+                      combo.badge === "Fail"
+                        ? "bg-red-50 text-red-600"
+                        : combo.badge === "AA"
+                          ? "bg-amber-50 text-amber-700"
+                          : "bg-emerald-50 text-emerald-700"
+                    }`}
+                  >
+                    {combo.badge}
+                    {combo.ratio && <span className="text-[#888888]">Ratio: {combo.ratio}</span>}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <SectionHeader eyebrow="Responsive Grid System" title="A 12-column grid that adapts across breakpoints." />
+            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+              {GRID_BREAKPOINTS.map((bp) => (
+                <div key={bp.name} className="rounded-2xl border border-[#dedcd4] bg-white p-6">
+                  <div className="flex items-baseline justify-between">
+                    <p className="text-sm font-bold text-ink">{bp.name}</p>
+                    <p className="text-xs text-[#888888]">{bp.range}</p>
+                  </div>
+                  <p className="mt-1 text-xs text-[#888888]">{bp.columns} columns</p>
+                  <div className="mt-4 grid gap-1" style={{ gridTemplateColumns: `repeat(${bp.columns}, 1fr)` }}>
+                    {Array.from({ length: bp.columns }).map((_, i) => (
+                      <span key={i} aria-hidden className="h-8 rounded-sm bg-[#3F8CC4]/20" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <SectionHeader eyebrow="Accessibility Standards" title="Key accessibility best practices implemented across the system." />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {A11Y_STANDARDS.map((item) => (
+                <div key={item.title} className="flex items-start gap-3 rounded-2xl border border-[#dedcd4] bg-white p-5">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                    ✓
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-ink">{item.title}</p>
+                    <p className="mt-1 text-[13px] text-[#555555]">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Platform Modules */}

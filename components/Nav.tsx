@@ -2,12 +2,13 @@ import Link from "next/link";
 
 const LINKS = [
   { label: "Work", href: "/work" },
-  { label: "Archive", href: "/archive" },
+  { label: "Resume", href: "/resume" },
   { label: "About", href: "/about" },
+  { label: "Archive", href: "/archive" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export default function Nav({ active }: { active?: "Work" | "Archive" | "About" | "Contact" }) {
+export default function Nav({ active }: { active?: "Work" | "Resume" | "Archive" | "About" | "Contact" }) {
   return (
     <header className="absolute inset-x-0 top-0 z-20 backdrop-blur-sm">
       <div className="flex items-center justify-between px-6 py-8 sm:px-10 lg:px-20">

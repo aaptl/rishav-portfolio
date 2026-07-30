@@ -3,7 +3,19 @@
     "allow": [
       "Bash(taskkill //F //IM node.exe //FI \"WINDOWTITLE eq *\")",
       "Bash(pkill -f \"next dev\")",
-      "Bash(curl -s -o /dev/null -w \"still up: %{http_code}\\\\n\" http://localhost:3000/work)"
+      "Bash(curl -s -o /dev/null -w \"still up: %{http_code}\\\\n\" http://localhost:3000/work)",
+      "mcp__figma__get_figma_data",
+      "Read(//c//**)",
+      "Bash(find 'C:\\\\Users\\\\patel' -maxdepth 4 -iname *.claude.json -o -iname mcp*.json)",
+      "Bash(npx --no-install playwright --version)",
+      "PowerShell(claude mcp list 2>&1)",
+      "Bash(npm ls *)",
+      "Bash(npm root *)",
+      "mcp__figma__download_figma_images",
+      "Bash(chromium-cli --help)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/work)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/resume)",
+      "Bash(curl -s http://localhost:3000/resume)"
     ]
   }
 }

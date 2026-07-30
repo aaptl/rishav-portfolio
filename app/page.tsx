@@ -234,12 +234,6 @@ export default function HomePage() {
               className="w-full rounded-[32px] border border-white/10"
             />
           </div>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-12 inline-flex items-center rounded-full bg-white px-8 py-4 text-base font-medium text-ink shadow-lg transition-transform hover:scale-[1.03]"
-          >
-            View Full Case Study
-          </a>
         </div>
       </section>
 
@@ -332,8 +326,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer />
       <CtaStrip />
+      <Footer />
     </main>
   );
 }

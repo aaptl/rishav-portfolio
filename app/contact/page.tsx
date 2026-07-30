@@ -44,7 +44,7 @@ export default function ContactPage() {
               alt="Portrait of Rishav Singh"
               width={480}
               height={432}
-              className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px]"
+              className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] lg:h-108"
             />
             <div className="mt-6">
               <h2 className="text-2xl font-bold text-ink">Nice to meet you, I&apos;m Rishav.</h2>
@@ -62,33 +62,37 @@ export default function ContactPage() {
             action={`mailto:${CONTACT_EMAIL}`}
             method="POST"
             encType="text/plain"
-            className="flex flex-col rounded-2xl border border-[#ececec] p-6 sm:p-8"
+            className="flex flex-col gap-6 rounded-2xl border border-[#e5e7eb] p-6 sm:p-8"
           >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <label className="block">
-                <span className="text-xs font-medium uppercase tracking-wide text-[#767676]">Your Name</span>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="block space-y-2">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.09em] text-[#6b7280]">
+                  Your Name
+                </span>
                 <input
                   type="text"
                   name="name"
                   required
                   placeholder="E.g. Harry Potter"
-                  className="mt-2 w-full rounded-xl border border-[#ececec] px-4 py-3 text-sm text-ink placeholder:text-[#aaaaaa] focus:border-ink/40 focus:outline-none"
+                  className="h-12 w-full rounded-xl border border-[#e5e7eb] bg-[#f9fafb] px-4 text-sm text-ink placeholder:text-[#9ca3af] focus:border-ink/40 focus:outline-none"
                 />
               </label>
-              <label className="block">
-                <span className="text-xs font-medium uppercase tracking-wide text-[#767676]">Email Address</span>
+              <label className="block space-y-2">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.09em] text-[#6b7280]">
+                  Email Address
+                </span>
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="you@company.com"
-                  className="mt-2 w-full rounded-xl border border-[#ececec] px-4 py-3 text-sm text-ink placeholder:text-[#aaaaaa] focus:border-ink/40 focus:outline-none"
+                  className="h-12 w-full rounded-xl border border-[#e5e7eb] bg-[#f9fafb] px-4 text-sm text-ink placeholder:text-[#9ca3af] focus:border-ink/40 focus:outline-none"
                 />
               </label>
             </div>
 
-            <label className="mt-5 block">
-              <span className="text-xs font-medium uppercase tracking-wide text-[#767676]">
+            <label className="block space-y-2">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.09em] text-[#6b7280]">
                 Tell me about the challenge
               </span>
               <textarea
@@ -96,46 +100,48 @@ export default function ContactPage() {
                 required
                 rows={5}
                 placeholder="Describe the system, timeline, and current bottlenecks..."
-                className="mt-2 h-40 w-full resize-none rounded-xl border border-[#ececec] px-4 py-3 text-sm text-ink placeholder:text-[#aaaaaa] focus:border-ink/40 focus:outline-none"
+                className="h-40 w-full resize-none rounded-xl border border-[#e5e7eb] bg-[#f9fafb] px-4 py-4 text-sm text-ink placeholder:text-[#9ca3af] focus:border-ink/40 focus:outline-none"
               />
             </label>
 
-            <button
-              type="submit"
-              className="mt-6 inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#111827] text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02]"
-            >
-              <svg
-                aria-hidden
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
+            <div className="flex flex-col gap-3">
+              <button
+                type="submit"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#111827] text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02]"
               >
-                <path d="m22 2-7 20-4-9-9-4Z" />
-                <path d="M22 2 11 13" />
-              </svg>
-              Start the conversation <span aria-hidden>→</span>
-            </button>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <path d="m22 2-7 20-4-9-9-4Z" />
+                  <path d="M22 2 11 13" />
+                </svg>
+                Start the conversation <span aria-hidden>→</span>
+              </button>
 
-            <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-[#767676]">
-              <svg
-                aria-hidden
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-3.5 w-3.5 shrink-0"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              Your details are safe with me. I&apos;ll get back to you within 24 hours.
-            </p>
+              <p className="inline-flex items-center justify-center gap-1.5 text-[13px] text-[#9ca3af]">
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-3 w-3 shrink-0"
+                >
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                Your details are safe with me. I&apos;ll get back to you within 24 hours.
+              </p>
+            </div>
           </form>
         </div>
       </section>

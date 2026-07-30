@@ -81,6 +81,24 @@ const FRAMEWORK_LAYERS = [
   },
 ];
 
+const KEY_EXPERIENCE_STEPS = [
+  {
+    step: "Step 01",
+    title: "Brand-first onboarding experience",
+    body: "The login screen reflects the Suchama AI brand identity — gradient background, clear logo, and a minimal form that gets users to SAI with zero friction.",
+  },
+  {
+    step: "Step 02",
+    title: "Conversational AI for planning",
+    body: "SAI's chat interface makes complex production planning feel like a conversation. Users describe their constraints in plain language; SAI handles the structure.",
+  },
+  {
+    step: "Step 03",
+    title: "Structured plans ready to execute",
+    body: "Production plans are surfaced as editable tables — batch numbers, machine types, norms, manhours — linked to source data and shareable with one click.",
+  },
+];
+
 const DESIGN_DECISIONS = [
   {
     title: "Structured AI Output",
@@ -232,6 +250,30 @@ export default function SuchamaiAiPage() {
               <p className="mt-3 text-[13px] leading-5 text-white/60">{layer.body}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Key Experience */}
+      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
+        <div className="relative">
+          <SectionHeader eyebrow="05 · Key Experience" title="From data to decisions." />
+          <div className="mt-10 space-y-5">
+            {KEY_EXPERIENCE_STEPS.map((step) => (
+              <div
+                key={step.step}
+                className="flex flex-col gap-2 rounded-2xl border border-[#dedcd4] bg-white p-6 sm:flex-row sm:items-baseline sm:gap-8"
+              >
+                <p className="shrink-0 text-xs font-bold uppercase tracking-wide text-[#888888] sm:w-20">
+                  {step.step}
+                </p>
+                <div>
+                  <h3 className="text-base font-semibold text-ink">{step.title}</h3>
+                  <p className="mt-2 max-w-160 text-[13px] leading-5 text-[#555555]">{step.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -139,6 +139,17 @@ export default function MobeeLoaPage() {
           and unable to act with authority. We created a formal, printable and in-app Letter of Authorization (LOA)
           — a psychological placebo that armed users with the confidence to navigate stores authoritatively.
         </p>
+        <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 p-5">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wide text-white/40">Before LOA</p>
+            <p className="mt-1 text-sm font-medium text-white/70">Fear-driven avoidance</p>
+          </div>
+          <span aria-hidden className="text-white/30">→</span>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wide text-white/40">After LOA</p>
+            <p className="mt-1 text-sm font-medium text-white/70">Confidence-driven action</p>
+          </div>
+        </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {WHAT_LOA_DOES.map((item) => (
             <div key={item.title} className="rounded-xl border border-white/10 p-5">

@@ -133,6 +133,31 @@ const COACHING_PILLARS = [
   },
 ];
 
+const EDGE_CASES = [
+  {
+    title: "Welcome to Trovex.ai",
+    body: "No Courses Assigned Yet — once a course is assigned to you, it will appear here. Your learning journey begins here.",
+  },
+  {
+    title: "No Match Found",
+    body: "We couldn't find anything that matches your search. Please try different keywords or adjust your filters.",
+  },
+  {
+    title: "No Practice Courses Yet",
+    body: "Once practice material is assigned, it will appear here.",
+  },
+  {
+    title: "No Courses Submitted",
+    body: "You haven't submitted any courses yet. Start learning and submit your progress here.",
+  },
+];
+
+const KEY_TAKEAWAYS = [
+  "Designing for AI means designing for uncertainty — every failure state is a trust-building opportunity.",
+  "Behavior change requires practice, not information. The shift from quiz-based to conversation-based training drove 5× more engagement.",
+  "Building foundations first costs weeks but saves months — the bottom-up architecture enabled consistent scaling across all product surfaces.",
+];
+
 const IMPACT_STATS = [
   { value: "45%", label: "Improvement in sales rep performance" },
   { value: "100+", label: "Companies using Trovex to train sales teams" },
@@ -348,9 +373,45 @@ export default function TrovexAiPage() {
         </div>
       </section>
 
+      {/* Edge Cases & System Resilience */}
+      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
+        <div className="relative">
+          <SectionHeader
+            eyebrow="07 · Edge Cases & System Resilience"
+            title="Designing for the moments AI breaks."
+          />
+          <p className="mt-4 max-w-[680px] text-base leading-[27px] text-[#555555]">
+            Every failure state was treated as a product moment — an opportunity to reassure, recover, or convert.
+          </p>
+          <div className="mt-8 rounded-2xl border border-[#dedcd4] bg-white p-6">
+            <p className="text-xs font-bold uppercase tracking-wide text-[#888888]">Decision</p>
+            <p className="mt-2 text-[15px] leading-6 text-ink">
+              Every AI failure state was designed as a trust-building moment. Instead of hiding errors, we made
+              recovery visible and coached users through uncertainty.
+            </p>
+          </div>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {EDGE_CASES.map((state) => (
+              <div key={state.title} className="rounded-xl border border-[#dedcd4] bg-white p-5">
+                <h3 className="text-sm font-semibold text-ink">{state.title}</h3>
+                <p className="mt-2 text-[13px] leading-5 text-[#555555]">{state.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 rounded-2xl border border-[#dedcd4] bg-white p-6">
+            <p className="text-xs font-bold uppercase tracking-wide text-[#888888]">Trade-off</p>
+            <p className="mt-2 text-[15px] leading-6 text-ink">
+              We accepted higher latency on feedback generation to ensure accuracy. Users tolerated 2-3 second delays
+              when the output quality was visibly better.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Impact & Outcomes */}
       <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
-        <SectionHeader eyebrow="07 · Impact & Outcomes" title="What shipped, what moved." tone="dark" />
+        <SectionHeader eyebrow="08 · Impact & Outcomes" title="What shipped, what moved." tone="dark" />
         <div className="mt-10">
           <StatRow tone="dark" stats={IMPACT_STATS} />
         </div>
@@ -385,7 +446,7 @@ export default function TrovexAiPage() {
       <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
-          <SectionHeader eyebrow="08 · Reflection" title="What I would do differently." />
+          <SectionHeader eyebrow="09 · Reflection" title="What I would do differently." />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             <div className="rounded-2xl border border-[#dedcd4] bg-white p-6">
               <p className="text-sm font-bold text-ink">💡 What Worked</p>
@@ -415,6 +476,18 @@ export default function TrovexAiPage() {
             other side of it.&rdquo;
           </p>
         </div>
+      </section>
+
+      {/* Key Takeaways */}
+      <section className="bg-ink px-6 py-16 sm:px-10 lg:px-20">
+        <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- Key Takeaways</p>
+        <ul className="mt-6 space-y-4">
+          {KEY_TAKEAWAYS.map((item) => (
+            <li key={item} className="max-w-190 text-lg leading-[1.6] text-white/80">
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <CaseStudyNav currentSlug="trovex-ai" />

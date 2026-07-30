@@ -3,7 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
-import { CONTACT_EMAIL } from "@/lib/site";
+import CtaStrip from "@/components/CtaStrip";
 
 export const metadata: Metadata = {
   title: "About",
@@ -244,25 +244,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-white/5 bg-ink px-6 py-14 sm:px-10 lg:px-20">
-        <div className="mx-auto flex max-w-[640px] flex-col items-center text-center">
-          <h2 className="text-5xl font-bold tracking-[-1.5px] text-white sm:text-6xl lg:text-7xl">
-            Let&apos;s work together.
-          </h2>
-          <p className="mt-5 max-w-[500px] text-[13px] leading-[17px] text-white/50">
-            I&apos;m always interested in designing AI products, enterprise software and ambitious digital experiences
-            with teams that value thoughtful execution.
-          </p>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-ink transition-transform hover:scale-[1.03]"
-          >
-            Get in touch <span aria-hidden>→</span>
-          </a>
-        </div>
-      </section>
-
+      <CtaStrip />
       <Footer />
     </main>
   );

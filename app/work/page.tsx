@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import HeroBackdrop from "@/components/HeroBackdrop";
 import CtaStrip from "@/components/CtaStrip";
-import { CONTACT_EMAIL } from "@/lib/site";
+import WorkExplorer from "./WorkExplorer";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -19,138 +15,29 @@ export const metadata: Metadata = {
   },
 };
 
-const FILTERS = ["All", "UX Design", "Brand", "AI Products", "No-Code"];
-
-const PROJECTS = [
-  {
-    tag: "01 / UX DESIGN / MOBILE APP / AI",
-    title: "Pawle",
-    body: "A connected pet ecosystem combining commerce, care, and health management into one scalable platform.",
-    image: "/images/work-pawle.png",
-    imageAlt: "Pawle pet care app — mobile booking, health overview, and shop screens",
-    imageLeft: true,
-    href: "/work/pawle",
-  },
-  {
-    tag: "02 / UX DESIGN / WEB / SAAS",
-    title: "Wiser Solutions",
-    body: "A scalable UI component system unifying multiple products — 200+ components, atomic design methodology.",
-    image: "/images/work-wiser.png",
-    imageAlt: "Wiser design system — component library and multi-product UI foundations",
-    imageLeft: false,
-    href: "/work/wiser-solutions",
-  },
-  {
-    tag: "03 / UX DESIGN / AI / WEB PRODUCT",
-    title: "Suchamai AI",
-    body: "Manufacturing planning experiences that simplify operational complexity and improve production visibility.",
-    image: "/images/work-suchamai.png",
-    imageAlt: "Suchama AI — supply chain planning website and AI assistant interface",
-    imageLeft: true,
-    href: "/work/suchamai-ai",
-  },
-  {
-    tag: "04 / BRAND / WEB DESIGN / NO-CODE",
-    title: "Slide Coach Ai",
-    body: "A minimalist shopping ecosystem centred around intentionality and high-end artisanal goods.",
-    image: "/images/work-selectr.png",
-    imageAlt: "Slide Coach Ai — brand and web design showcase",
-    imageLeft: false,
-    href: null,
-  },
-  {
-    tag: "05 / AI PRODUCT / UX / SYSTEMS",
-    title: "Trovex.ai",
-    body: "AI-powered sales role-play platform. Led design across product strategy, UX architecture, and visual systems.",
-    image: "/images/work-trovex.png",
-    imageAlt: "Trovex.ai — AI roleplay training platform hero with dashboard and live call UI",
-    imageLeft: true,
-    href: "/work/trovex-ai",
-  },
-  {
-    tag: "06 / CONSUMER APP / UX / BRAND",
-    title: "Mobee",
-    body: "A cashback rewards platform connecting shoppers and retailers through intelligent location-based discovery.",
-    image: "/images/work-mobee.png",
-    imageAlt: "Mobee — cashback shopping app screens with map-based nearby offers",
-    imageLeft: false,
-    href: "/work/mobee",
-  },
-];
-
 export default function WorkPage() {
   return (
     <main className="flex-1 bg-paper">
-      {/* Hero */}
-      <section className="dark-wash relative min-h-[600px] overflow-hidden">
-        <HeroBackdrop />
-        <Nav active="Work" />
-        <div className="relative z-10 mx-auto flex min-h-[600px] max-w-[800px] flex-col items-center justify-center px-6 py-32 text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- Selected Projects</p>
-          <h1 className="mt-4 text-6xl leading-tight text-white lg:text-[80px]">My Work.</h1>
-          <p className="mt-6 max-w-[400px] text-lg leading-[27px] text-white/60">
-            Every project here demanded something different of me.
-          </p>
-        </div>
-      </section>
+      <WorkExplorer />
 
-      {/* Filter bar */}
-      <div className="border-b border-black/10 bg-paper px-6 sm:px-10 lg:px-20">
-        <div className="flex items-center justify-between py-5">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-8">
-            {FILTERS.map((filter, i) => (
-              <span key={filter} className="flex items-center gap-4 sm:gap-8">
-                <span className="text-[13px] font-medium text-ink">{filter}</span>
-                {i < FILTERS.length - 1 && <span aria-hidden className="text-[13px] text-[#888888]">/</span>}
-              </span>
-            ))}
+      {/* Behance banner */}
+      <section className="px-6 pb-16 sm:px-10 lg:px-20">
+        <div className="flex flex-col items-start gap-8 rounded-3xl border border-[#e5e7eb] bg-white p-10 shadow-[0_8px_24px_-10px_rgba(0,0,0,0.05)] sm:flex-row sm:items-center sm:justify-between lg:p-16">
+          <div className="space-y-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[2px] text-[#6b7280]">Portfolio</p>
+            <h2 className="text-2xl font-semibold tracking-[-0.5px] text-[#111827] sm:text-[28px]">
+              Explore my full portfolio on Behance
+            </h2>
+            <p className="text-sm leading-[22px] text-[#6b7280]">
+              More case studies, design systems, and product explorations.
+            </p>
           </div>
-          <p className="hidden text-xs text-[#888888] sm:block">6 projects</p>
-        </div>
-      </div>
-
-      {/* Projects */}
-      <section className="relative">
-        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
-        <div className="relative">
-          {PROJECTS.map((project) => (
-            <article
-              key={project.title}
-              className={`flex flex-col items-center gap-10 px-6 py-16 sm:px-10 lg:flex-row lg:gap-20 lg:px-20 lg:py-[100px] ${
-                project.imageLeft ? "" : "lg:flex-row-reverse"
-              }`}
-            >
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                width={640}
-                height={480}
-                className="w-full max-w-[679px] rounded-3xl lg:w-1/2"
-              />
-              <div className="lg:w-1/2 lg:max-w-[560px]">
-                <p className="text-xs font-bold tracking-wide text-[#888888]">{project.tag}</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-[-1px] text-ink lg:text-[40px]">
-                  {project.title}
-                </h2>
-                <p className="mt-4 text-lg leading-[29px] text-[#555555]">{project.body}</p>
-                {project.href ? (
-                  <Link
-                    href={project.href}
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
-                  >
-                    Explore Project <span aria-hidden>→</span>
-                  </Link>
-                ) : (
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
-                  >
-                    Explore Project <span aria-hidden>→</span>
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+          <a
+            href="#"
+            className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-[#111827] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,0.08)] transition-opacity hover:opacity-90"
+          >
+            See more on Behance →
+          </a>
         </div>
       </section>
 

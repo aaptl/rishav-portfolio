@@ -222,6 +222,20 @@ export default function WiserSolutionsPage() {
         </p>
       </section>
 
+      {/* Documentation */}
+      <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+        <SectionHeader eyebrow="Documentation" title="Comprehensive documentation to support adoption and maintenance." tone="dark" />
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          {["Detailed component documentation", "Usage guidelines and best practices", "API documentation for developers"].map(
+            (item) => (
+              <li key={item} className="rounded-xl border border-white/10 p-5 text-sm leading-6 text-white/60">
+                {item}
+              </li>
+            ),
+          )}
+        </ul>
+      </section>
+
       {/* Reflection */}
       <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
