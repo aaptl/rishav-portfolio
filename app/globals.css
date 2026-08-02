@@ -19,6 +19,12 @@ body {
   background-image: linear-gradient(180deg, #1a2332 0%, rgba(0, 0, 0, 0.9) 100%);
 }
 
+/* Pawle brand-blue wash, used on its own case-study sections instead of dark-wash */
+.pawle-blue-wash {
+  background-color: #3f8cc4;
+  background-image: linear-gradient(135deg, #3f8cc4 0%, #5b96d6 35%, #8aa8e6 65%, #bfbaf8 100%);
+}
+
 /* 40px grid overlays */
 .grid-lines-dark {
   background-image:

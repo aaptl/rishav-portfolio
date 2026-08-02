@@ -8,9 +8,15 @@ const LINKS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export default function Nav({ active }: { active?: "Work" | "Resume" | "Archive" | "About" | "Contact" }) {
+export default function Nav({
+  active,
+  blur = true,
+}: {
+  active?: "Work" | "Resume" | "Archive" | "About" | "Contact";
+  blur?: boolean;
+}) {
   return (
-    <header className="absolute inset-x-0 top-0 z-20 backdrop-blur-sm">
+    <header className={`absolute inset-x-0 top-0 z-20 ${blur ? "backdrop-blur-sm" : ""}`}>
       <div className="flex items-center justify-between px-6 py-8 sm:px-10 lg:px-20">
         <Link href="/" className="text-[17px] text-white">
           Rishav Singh

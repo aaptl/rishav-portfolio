@@ -15,7 +15,24 @@
       "Bash(chromium-cli --help)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/work)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/resume)",
-      "Bash(curl -s http://localhost:3000/resume)"
+      "Bash(curl -s http://localhost:3000/resume)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/work/kasaba-home)",
+      "Bash(curl -s -o /dev/null -w \"work page: %{http_code}\\\\n\" http://localhost:3000/work)",
+      "Bash(curl -s -o /dev/null -w \"about page: %{http_code}\\\\n\" http://localhost:3000/about)",
+      "Bash(curl -s -o /dev/null -w \"pawle page: %{http_code}\\\\n\" http://localhost:3000/work/pawle)",
+      "Bash(curl -s -o /dev/null -w \"hero-phones.png: %{http_code}\\\\n\" http://localhost:3000/images/pawle/hero-phones.png)",
+      "Bash(curl -s http://localhost:3000/work/mobee/pin-level-pricing)",
+      "Bash(curl -s http://localhost:3000/work/mobee)",
+      "Bash(curl -sf -o /dev/null -w \"%{http_code}\" http://localhost:3000/work/mobee/bonus-implementation)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(curl -s http://localhost:3000/work/mobee/bonus-implementation)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/archive)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:3001/archive)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:3001/archive\" -UseBasicParsing)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/work/suchamai-ai --max-time 5)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/work/suchamai-ai --max-time 5)",
+      "Bash(curl -s http://localhost:3000/work/suchamai-ai --max-time 10)",
+      "Bash(find 'C:\\\\Users\\\\patel/AppData/Local/ms-playwright/chromium-1228' -iname *.exe)"
     ]
   }
 }

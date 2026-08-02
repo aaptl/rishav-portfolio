@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import CtaStrip from "@/components/CtaStrip";
+import ExperienceAccordion from "./ExperienceAccordion";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,37 +19,30 @@ export const metadata: Metadata = {
   },
 };
 
-const EXPERIENCE = [
-  { company: "Independent Product Design Consultant", role: "Product Design Consultant", years: "2025 - Present" },
-  { company: "Trovex AI", role: "Senior Product Designer", years: "2025" },
-  { company: "UIUX Studio Pvt. Ltd.", role: "Product Designer", years: "2023 - 2025" },
-  { company: "UNO MINDA (Initia Designs)", role: "UX/UI Designer", years: "2022 - 2023" },
-];
-
 const SKILLS = [
   {
     title: "AI Product Design",
-    body: "Designing AI-powered experiences that balance intelligence, usability and trust.",
+    body: "Designing AI experiences that feel explainable, trustworthy and genuinely useful—not just intelligent.",
   },
   {
     title: "Product Strategy",
-    body: "Turning ambiguous ideas into clear product direction, roadmaps and measurable outcomes.",
+    body: "Connecting user needs, business goals and technical feasibility into clear product direction.",
   },
   {
     title: "Enterprise UX",
-    body: "Simplifying complex workflows without sacrificing capability or scalability.",
+    body: "Simplifying complex workflows into interfaces that improve speed, confidence and adoption.",
   },
   {
     title: "Design Systems",
-    body: "Building reusable systems that accelerate delivery while improving consistency.",
+    body: "Building reusable foundations that help teams ship consistently across products and platforms.",
   },
   {
     title: "Information Architecture",
-    body: "Creating structures that help users find clarity instead of complexity.",
+    body: "Turning fragmented ecosystems into intuitive navigation structures and scalable product architecture.",
   },
   {
     title: "No-Code Development",
-    body: "Transforming validated ideas into production-ready experiences using modern no-code tools.",
+    body: "Shipping production-ready marketing websites and product experiences using Framer and modern no-code workflows.",
   },
 ];
 
@@ -56,35 +50,32 @@ const PROCESS = [
   {
     step: "01 - Discover",
     title: "Discover",
-    body: "Understand the business, users and constraints before exploring solutions.",
+    body: "Understand users, business goals, technical constraints and market context before proposing solutions.",
   },
   {
     step: "02 - Define",
     title: "Define",
-    body: "Frame the right problem through research, product thinking and collaboration.",
+    body: "Frame the right problem through research, systems thinking and stakeholder alignment.",
   },
   {
     step: "03 - Design",
     title: "Design",
-    body: "Create scalable experiences supported by systems, prototypes and iterative validation.",
+    body: "Design scalable experiences using prototypes, design systems and continuous validation.",
   },
   {
     step: "04 - Deliver",
     title: "Deliver",
-    body: "Partner closely with engineering to ship products that work in the real world.",
+    body: "Partner closely with engineering to ensure every design ships with quality—not just intent.",
   },
 ];
 
 const PERSONAL = [
-  { label: "Curiosity", body: "The best product ideas usually begin outside the screen." },
-  { label: "Adventure", body: "Mountains, long walks and new places remind me that perspective changes everything." },
+  { label: "Photography", body: "Training myself to notice composition, light and the details most people overlook." },
+  { label: "Travel", body: "Every new place challenges assumptions and broadens the way I think about people and products." },
+  { label: "Mountains", body: "Some of my clearest thinking happens far away from notifications and deadlines." },
   {
-    label: "Photography",
-    body: "I enjoy documenting details most people overlook. Observation is part of my design process.",
-  },
-  {
-    label: "Building",
-    body: "Whether it's an AI product or a personal side project, I enjoy turning ideas into working systems.",
+    label: "Systems Thinking",
+    body: "Whether it's software, architecture or everyday life, I'm always looking for patterns that simplify complexity.",
   },
 ];
 
@@ -96,16 +87,18 @@ export default function AboutPage() {
         <HeroBackdrop />
         <Nav active="About" />
         <div className="relative z-10 mx-auto flex min-h-[680px] max-w-[640px] flex-col items-center justify-center px-6 py-32 text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/50">- About</p>
+          <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/50">
+            Product Designer • AI Systems • Design Systems
+          </p>
           <h1 className="mt-6 text-5xl font-semibold leading-[1.1] text-white sm:text-6xl lg:text-7xl">
             Precision is not a style.
             <br />
             It is the standard.
           </h1>
           <p className="mt-9 text-lg leading-[29px] text-white/80">
-            I design AI-powered products, enterprise systems and scalable design systems that help people make better
-            decisions. My work combines product strategy, systems thinking and thoughtful execution to create software
-            that earns trust over time.
+            I design AI products, enterprise platforms, and scalable design systems that transform complexity into
+            intuitive experiences. My work combines product strategy, systems thinking, and execution to help teams
+            build products people trust.
           </p>
         </div>
         <p className="absolute bottom-12 left-6 z-10 flex items-center gap-2.5 text-[13px] font-medium text-white sm:left-10 lg:left-20">
@@ -123,8 +116,8 @@ export default function AboutPage() {
               src="/images/portrait.png"
               alt="Portrait of Rishav Singh"
               width={560}
-              height={620}
-              className="w-full rounded-xl border border-[#dedcd4] object-cover"
+              height={646}
+              className="w-full rounded-xl border border-dashed border-[#dedcd4] object-cover"
               priority
             />
             <p className="mt-3 text-[11px] font-medium uppercase tracking-[1px] text-[#888888]">- Bio</p>
@@ -133,17 +126,27 @@ export default function AboutPage() {
             <p className="text-[11px] font-medium uppercase tracking-[1px] text-[#888888]">- Bio</p>
             <div className="mt-10 space-y-8 text-base leading-[27px] text-[#333333]">
               <p>
-                I didn&apos;t begin my career in design-I began by asking why products become difficult to use as they
-                grow.
+                I didn&apos;t begin my career in design, I began by asking why products become difficult to use as
+                they grow.
               </p>
               <p>
-                That curiosity led me from mechanical engineering into product design, where I discovered that the
-                hardest problems rarely come from interfaces. They come from complexity.
+                That curiosity took me from Mechanical Engineering into Product Design, where I discovered that the
+                hardest problems rarely come from interfaces. They come from complexity, fragmented systems, and
+                unclear decisions.
               </p>
               <p>
-                Over the past four years, I&apos;ve worked across enterprise SaaS, AI products, healthcare, marketplaces
-                and consumer applications, partnering with founders, engineers and product teams to design systems that
-                remain intuitive as products evolve.
+                Over the last four years, I&apos;ve worked across AI products, enterprise SaaS, healthcare,
+                marketplaces, and consumer applications. Whether I&apos;m partnering with founders on a 0→1 product
+                or refining enterprise workflows used by thousands, I enjoy simplifying complexity into experiences
+                that feel effortless.
+              </p>
+              <p>
+                I believe great products aren&apos;t remembered because they&apos;re beautiful. They&apos;re
+                remembered because they quietly make difficult things feel obvious.
+              </p>
+              <p>
+                Outside of work you&apos;ll usually find me travelling, hiking through mountains, taking photographs,
+                or sketching ideas. Those moments away from the screen often shape the way I think about products.
               </p>
             </div>
           </div>
@@ -158,47 +161,18 @@ export default function AboutPage() {
             <span className="inline-block rounded border border-[#ececec] px-3 py-1.5 text-[11px] text-[#767676]">
               EXPERIENCE
             </span>
-            <h2 className="mt-8 text-4xl font-extrabold leading-[1.3] text-ink lg:text-5xl">
-              Where I&apos;ve grown, designed and contributed
-            </h2>
+            <h2 className="mt-8 text-4xl font-extrabold leading-[1.3] text-ink lg:text-5xl">Career Journey</h2>
           </div>
-          <div>
-            {EXPERIENCE.map((item) => (
-              <div
-                key={item.company}
-                className="flex items-center justify-between gap-6 border-b border-[#ececec] py-8"
-              >
-                <div>
-                  <h3 className="text-[22px] font-bold text-ink">{item.company}</h3>
-                  <p className="mt-1 text-base text-[#767676]">{item.role}</p>
-                </div>
-                <p className="flex shrink-0 items-center gap-2 text-base font-medium text-[#767676]">
-                  {item.years}
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </p>
-              </div>
-            ))}
-          </div>
+          <ExperienceAccordion />
         </div>
       </section>
 
       {/* Expertise */}
-      <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-[120px]">
+      <section className="dark-wash px-6 py-20 sm:px-10 lg:px-20 lg:py-[120px]">
         <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/50">- Expertise</p>
         <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_580px] lg:gap-20">
           <h2 className="max-w-[700px] text-4xl font-semibold leading-[1.2] tracking-[-0.5px] text-white lg:text-5xl">
-            What I bring to every engagement.
+            Design decisions are strongest when they&apos;re backed by systems, not assumptions.
           </h2>
           <div className="grid sm:grid-cols-3">
             {SKILLS.map((skill) => (
@@ -216,7 +190,7 @@ export default function AboutPage() {
         <span className="inline-block rounded border border-[#ececec] px-3 py-1 text-[11px] text-[#767676]">
           PROCESS
         </span>
-        <h2 className="mt-4 text-3xl font-extrabold text-ink">A simple process for building great products.</h2>
+        <h2 className="mt-4 text-3xl font-extrabold text-ink">How I approach product design.</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS.map((item) => (
             <article key={item.step} className="rounded-xl border border-[#ececec]/60 bg-white p-6">
@@ -231,9 +205,7 @@ export default function AboutPage() {
       {/* Personal */}
       <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-[120px]">
         <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/50">- Personal</p>
-        <h2 className="mt-6 text-4xl font-semibold tracking-[-1px] text-white lg:text-5xl">
-          The rest of the picture.
-        </h2>
+        <h2 className="mt-6 text-4xl font-semibold tracking-[-1px] text-white lg:text-5xl">Beyond the screen.</h2>
         <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-14">
           {PERSONAL.map((item) => (
             <div key={item.label}>

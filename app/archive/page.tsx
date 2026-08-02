@@ -86,19 +86,7 @@ export default function ArchivePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-black/10 px-6 py-10 sm:px-10 lg:px-[150px]">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-          {STATS.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl font-semibold text-ink lg:text-4xl">{stat.value}</p>
-              <p className="mt-1 text-xs text-[#888888]">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Table */}
+      {/* Table (stats appear as the first row, per Figma) */}
       <section className="px-6 py-10 sm:px-10 lg:px-[150px]">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[900px] border-collapse text-left">
@@ -115,8 +103,16 @@ export default function ArchivePage() {
               </tr>
             </thead>
             <tbody>
+              <tr className="border-b border-black/10">
+                {STATS.map((stat, i) => (
+                  <td key={stat.label} className={i === 0 ? "w-[400px] py-6 pr-4" : i === 1 ? "w-[340px] py-6 pr-4" : i === 2 ? "w-[120px] py-6 pr-4" : "py-6"}>
+                    <p className="text-sm font-medium text-ink">{stat.value}</p>
+                    <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-[#888888]">{stat.label}</p>
+                  </td>
+                ))}
+              </tr>
               {ENTRIES.map((entry, i) => (
-                <tr key={entry.project} className={i % 2 === 1 ? "bg-black/[0.02]" : ""}>
+                <tr key={entry.project} className={`border-b border-black/10 ${i % 2 === 1 ? "bg-black/[0.02]" : ""}`}>
                   <td className="w-[400px] py-6 pr-4 text-sm text-ink">{entry.project}</td>
                   <td className="w-[340px] py-6 pr-4 text-sm text-ink">{entry.discipline}</td>
                   <td className="w-[120px] py-6 pr-4 text-sm text-ink">{entry.year}</td>

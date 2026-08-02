@@ -82,7 +82,7 @@ const BRAND_PROJECTS: Project[] = [
     image: "/images/work-introducing-india.png",
     imageAlt: "Introducing India — cultural brand identity design",
     imageLeft: true,
-    href: null,
+    href: "/work/introducing-india",
   },
   {
     tag: "02 / BRAND IDENTITY / HOME & LIFESTYLE",
@@ -91,7 +91,7 @@ const BRAND_PROJECTS: Project[] = [
     image: "/images/work-kasaba-home.png",
     imageAlt: "Kasaba Home — artisanal home brand identity",
     imageLeft: false,
-    href: null,
+    href: "/work/kasaba-home",
   },
   {
     tag: "03 / BRAND IDENTITY / FINTECH",
@@ -100,11 +100,19 @@ const BRAND_PROJECTS: Project[] = [
     image: "/images/work-debtworks.png",
     imageAlt: "DebtWorks — fintech brand identity and visual system",
     imageLeft: true,
-    href: null,
+    href: "/work/debtworks",
   },
 ];
 
 const TABS = [
+  {
+    id: "all",
+    label: "All",
+    heroTitle: "My Work.",
+    heroSubtitle: "Every project here demanded something different of me.",
+    exploreLabel: "Explore more on Behance →",
+    projects: [...PRODUCT_PROJECTS, ...BRAND_PROJECTS],
+  },
   {
     id: "product",
     label: "Product Design",
@@ -124,7 +132,7 @@ const TABS = [
 ] as const;
 
 export default function WorkExplorer() {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]["id"]>("product");
+  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]["id"]>("all");
   const tab = TABS.find((t) => t.id === activeTab)!;
 
   return (

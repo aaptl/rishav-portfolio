@@ -16,6 +16,8 @@ export default function CaseStudyHero({
   heroImageAlt,
   backHref = "/work",
   backLabel = "Back to Work",
+  background = "dark-wash",
+  showBackdrop = true,
 }: {
   badge?: string;
   eyebrow: string;
@@ -27,10 +29,12 @@ export default function CaseStudyHero({
   heroImageAlt?: string;
   backHref?: string;
   backLabel?: string;
+  background?: string;
+  showBackdrop?: boolean;
 }) {
   return (
-    <section className="dark-wash relative overflow-hidden">
-      <HeroBackdrop />
+    <section className={`relative overflow-hidden ${background}`}>
+      {showBackdrop && <HeroBackdrop />}
       <Nav active="Work" />
       <div className="relative z-10 mx-auto flex max-w-[860px] flex-col items-center px-6 py-32 text-center sm:px-10 lg:px-20">
         {badge && (
