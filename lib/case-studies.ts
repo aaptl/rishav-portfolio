@@ -3,15 +3,16 @@ export type CaseStudySummary = {
   slug: string;
   title: string;
   blurb: string;
+  image: string;
 };
 
 /** The five top-level case studies, in display order. Used to drive the "More Case Studies" nav. */
 export const CASE_STUDIES: CaseStudySummary[] = [
-  { number: "01", slug: "pawle", title: "Pawle", blurb: "AI-first pet ecosystem & health platform" },
-  { number: "02", slug: "wiser-solutions", title: "Wiser Solutions", blurb: "Enterprise design systems & data" },
-  { number: "03", slug: "suchamai-ai", title: "Suchamai AI", blurb: "AI manufacturing planning & visibility" },
-  { number: "04", slug: "trovex-ai", title: "Trovex.ai", blurb: "AI sales practice & role-play" },
-  { number: "05", slug: "mobee", title: "Mobee", blurb: "Retail intelligence & cashback rewards" },
+  { number: "01", slug: "pawle", title: "Pawle", blurb: "AI-first pet ecosystem & health platform", image: "/images/card-pawle.png" },
+  { number: "02", slug: "wiser-solutions", title: "Wiser Solutions", blurb: "Enterprise design systems & data", image: "/images/wiser-solutions/hero-box.png" },
+  { number: "03", slug: "suchamai-ai", title: "Suchamai AI", blurb: "AI manufacturing planning & visibility", image: "/images/card-suchama.png" },
+  { number: "04", slug: "trovex-ai", title: "Trovex.ai", blurb: "AI sales practice & role-play", image: "/images/trovex-featured.png" },
+  { number: "05", slug: "mobee", title: "Mobee", blurb: "Retail intelligence & cashback rewards", image: "/images/card-mobee.png" },
 ];
 
 /** Returns the next 3 case studies after `slug`, wrapping around — mirrors the source design's rotation. */

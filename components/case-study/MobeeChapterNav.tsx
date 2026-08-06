@@ -4,7 +4,6 @@ const CHAPTERS = [
   { slug: "letter-of-authorization", label: "Letter of Authorization" },
   { slug: "pin-level-pricing", label: "Pin Level Pricing" },
   { slug: "reckless-abandon", label: "Reckless Abandon" },
-  { slug: "bonus-implementation", label: "Bonus Implementation" },
 ] as const;
 
 export default function MobeeChapterNav({ current }: { current: (typeof CHAPTERS)[number]["slug"] }) {

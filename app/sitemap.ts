@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
-const MOBEE_CHAPTERS = ["pin-level-pricing", "reckless-abandon", "bonus-implementation"];
+const MOBEE_CHAPTERS = ["pin-level-pricing", "reckless-abandon"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

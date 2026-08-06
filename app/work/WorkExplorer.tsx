@@ -30,8 +30,8 @@ const PRODUCT_PROJECTS: Project[] = [
   {
     tag: "02 / UX DESIGN / WEB / SAAS",
     title: "Wiser Solutions",
-    body: "Reimagining pet health management through data-driven, empathic design for the modern pet owner.",
-    image: "/images/work-wiser.png",
+    body: "Unifying multiple products under one scalable design system — 200+ components built for consistency and speed.",
+    image: "/images/wiser-solutions/hero-box.png",
     imageAlt: "Wiser design system — component library and multi-product UI foundations",
     imageLeft: false,
     href: "/work/wiser-solutions",
@@ -62,15 +62,6 @@ const PRODUCT_PROJECTS: Project[] = [
     imageAlt: "Trovex.ai — AI roleplay training platform hero with dashboard and live call UI",
     imageLeft: false,
     href: "/work/trovex-ai",
-  },
-  {
-    tag: "06 / BRAND / WEB DESIGN / NO-CODE",
-    title: "Slide Coach Ai",
-    body: "A minimalist shopping ecosystem centred around intentionality and high-end artisanal goods.",
-    image: "/images/work-selectr.png",
-    imageAlt: "Slide Coach Ai — brand and web design showcase",
-    imageLeft: true,
-    href: null,
   },
 ];
 
@@ -106,14 +97,6 @@ const BRAND_PROJECTS: Project[] = [
 
 const TABS = [
   {
-    id: "all",
-    label: "All",
-    heroTitle: "My Work.",
-    heroSubtitle: "Every project here demanded something different of me.",
-    exploreLabel: "Explore more on Behance →",
-    projects: [...PRODUCT_PROJECTS, ...BRAND_PROJECTS],
-  },
-  {
     id: "product",
     label: "Product Design",
     heroTitle: "My Work.",
@@ -132,7 +115,7 @@ const TABS = [
 ] as const;
 
 export default function WorkExplorer() {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]["id"]>("all");
+  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]["id"]>("product");
   const tab = TABS.find((t) => t.id === activeTab)!;
 
   return (

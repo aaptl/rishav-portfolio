@@ -63,6 +63,7 @@ const WORK_PROJECTS = [
   {
     tag: "01 / UX DESIGN / MOBILE APP / BRAND",
     title: "Pawle",
+    slug: "pawle",
     body: "Designing a connected pet ecosystem combining commerce, care services, health management, and personalised experiences into one scalable platform.",
     image: "/images/card-pawle.png",
     imageAlt: "Pawle pet care app — mobile screens for booking, health tracking, and shopping",
@@ -71,14 +72,16 @@ const WORK_PROJECTS = [
   {
     tag: "02 / UX DESIGN / WEB / SAAS",
     title: "Wiser Solutions",
+    slug: "wiser-solutions",
     body: "Unifying multiple products under one scalable design system — 200+ components built for consistency and speed.",
-    image: "/images/card-mobee.png",
+    image: "/images/wiser-solutions/hero-box.png",
     imageAlt: "Wiser design system — component library and multi-product UI foundations",
     imageLeft: false,
   },
   {
     tag: "03 / UX DESIGN / AI / WEB PRODUCT",
     title: "Suchamai AI",
+    slug: "suchamai-ai",
     body: "Designing AI-powered manufacturing planning experiences that simplify operational complexity and improve production visibility.",
     image: "/images/card-suchama.png",
     imageAlt: "Suchama AI — supply chain planning product website and assistant UI",
@@ -253,19 +256,21 @@ export default function HomePage() {
                   project.imageLeft ? "" : "lg:flex-row-reverse"
                 }`}
               >
-                <Image
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width={695}
-                  height={495}
-                  className="w-full max-w-[695px] rounded-[32px] lg:w-1/2"
-                />
+                <Link href={`/work/${project.slug}`} className="w-full lg:w-1/2">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width={695}
+                    height={495}
+                    className="w-full max-w-[695px] rounded-[32px]"
+                  />
+                </Link>
                 <div className="lg:w-1/2 lg:max-w-[580px]">
                   <p className="text-xs font-bold tracking-wide text-[#575f4e]">{project.tag}</p>
                   <h3 className="mt-5 text-3xl font-semibold text-ink lg:text-[40px]">{project.title}</h3>
                   <p className="mt-5 text-lg leading-[26px] text-[#454841]">{project.body}</p>
                   <Link
-                    href="/work"
+                    href={`/work/${project.slug}`}
                     className="dark-wash mt-8 inline-flex items-center gap-2 rounded-full px-11 py-3.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
                   >
                     Explore Project
