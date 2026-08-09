@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Image from "next/image";
-import CaseStudyHero from "@/components/case-study/CaseStudyHero";
+import Link from "next/link";
+import Nav from "@/components/Nav";
 import CaseStudyNav from "@/components/case-study/CaseStudyNav";
 import SectionHeader from "@/components/case-study/SectionHeader";
-import { StatRow, Quote } from "@/components/case-study/Stat";
 import CtaStrip from "@/components/CtaStrip";
 import Footer from "@/components/Footer";
 
@@ -392,6 +392,75 @@ function TrendIcon({ className = "" }: { className?: string }) {
   );
 }
 
+function LayersIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+      <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+      <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+    </svg>
+  );
+}
+
+function ActivityIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" />
+    </svg>
+  );
+}
+
+function AlertCircleIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="16" x2="12.01" y2="16" />
+    </svg>
+  );
+}
+
+function RefreshIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+      <path d="M3 21v-5h5" />
+    </svg>
+  );
+}
+
+function SearchIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
+
+function GridIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
+  );
+}
+
+function LightbulbIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M9 18h6" />
+      <path d="M10 22h4" />
+      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+    </svg>
+  );
+}
+
 function ScreenPrincipleIcon({ className = "" }: { className?: string }) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={className} aria-hidden>
@@ -438,11 +507,11 @@ function ScreenMockup({ type }: { type: MockupType }) {
   }
 }
 
-const PROBLEMS = [
-  { title: "Disconnected tools", body: "Excel, ERP, custom dashboards: none talk to each other." },
-  { title: "High manual effort", body: "Analysts spend 60–80% of time cleaning, not deciding." },
-  { title: "No actionable insights", body: "Data exists. Clarity doesn't. Outputs are reports, not decisions." },
-  { title: "Slow decision cycles", body: "By the time the analysis lands, the planning window has closed." },
+const PROBLEMS: { title: string; body: string; icon: ReactNode }[] = [
+  { title: "Disconnected tools", body: "Excel, ERP, custom dashboards: none talk to each other.", icon: <LayersIcon /> },
+  { title: "High manual effort", body: "Analysts spend 60–80% of time cleaning, not deciding.", icon: <ActivityIcon /> },
+  { title: "No actionable insights", body: "Data exists. Clarity doesn't. Outputs are reports, not decisions.", icon: <AlertCircleIcon /> },
+  { title: "Slow decision cycles", body: "By the time the analysis lands, the planning window has closed.", icon: <RefreshIcon /> },
 ];
 
 const PROBLEM_STATS = [
@@ -451,11 +520,11 @@ const PROBLEM_STATS = [
   { value: "0", label: "platforms that connected data, AI reasoning, and decision output in one flow" },
 ];
 
-const PROCESS = [
-  { title: "Discovery", body: "6 stakeholder interviews · 3 enterprise sites · contextual observation" },
-  { title: "Synthesis", body: "Affinity mapping of pain points · journey mapping · insight clustering" },
-  { title: "Ideation", body: "Design sprint with founders · 40+ concepts · rapid prototype sessions" },
-  { title: "Iteration", body: "4 rounds of usability testing · weekly feedback loops with pilot users" },
+const PROCESS: { title: string; body: string; icon: ReactNode }[] = [
+  { title: "Discovery", body: "6 stakeholder interviews · 3 enterprise sites · contextual observation", icon: <SearchIcon /> },
+  { title: "Synthesis", body: "Affinity mapping of pain points · journey mapping · insight clustering", icon: <GridIcon /> },
+  { title: "Ideation", body: "Design sprint with founders · 40+ concepts · rapid prototype sessions", icon: <LightbulbIcon /> },
+  { title: "Iteration", body: "4 rounds of usability testing · weekly feedback loops with pilot users", icon: <RefreshIcon /> },
 ];
 
 const RESEARCH_QUOTES = [
@@ -636,83 +705,237 @@ const PROJECT_META = [
   { label: "Domain", value: "Enterprise SaaS" },
 ];
 
+const SECTION_TABS = [
+  { id: "problem", label: "Problem" },
+  { id: "research", label: "Research" },
+  { id: "challenge", label: "Challenge" },
+  { id: "solution", label: "Solution" },
+  { id: "experience", label: "Experience" },
+  { id: "decisions", label: "Decisions" },
+  { id: "screens", label: "Screens" },
+  { id: "brand", label: "Brand" },
+  { id: "outcome", label: "Outcome" },
+];
+
+function SectionTabs() {
+  return (
+    <nav className="sticky top-0 z-20 border-b border-black/10 bg-[#FAFAF9]/90 backdrop-blur-sm">
+      <div className="flex gap-1 overflow-x-auto px-6 py-3 sm:px-10 lg:justify-center lg:px-20">
+        {SECTION_TABS.map((tab) => (
+          <a
+            key={tab.id}
+            href={`#${tab.id}`}
+            className="shrink-0 rounded-full px-4 py-2 text-xs font-medium text-[#646464] transition-colors hover:bg-[#2C6ACE]/[0.07] hover:text-ink"
+          >
+            {tab.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+const HERO_PILLS = ["AI-led planning", "Reduced manual workflows", "Faster decision cycles"];
+const HERO_META = [
+  { label: "Role", value: "Product Designer" },
+  { label: "Period", value: "Feb – Oct 2025" },
+  { label: "Scope", value: "End-to-end" },
+];
+
+function SuchamaHero() {
+  return (
+    <section
+      className="relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #EBF2FF 43%, #EEEBFF 100%)" }}
+    >
+      <Nav active="Work" light />
+      <div className="relative z-10 px-6 pb-20 pt-32 sm:px-10 lg:px-20 lg:pt-40">
+        <div className="mx-auto grid max-w-[1360px] gap-16 lg:grid-cols-2 lg:items-center">
+          {/* Copy */}
+          <div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-medium text-ink shadow-sm transition-colors hover:border-black/20"
+            >
+              <span aria-hidden>←</span> Back to Work
+            </Link>
+
+            <div className="mt-8 flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF0FF]">
+                <Image src="/images/suchamai-logo.png" alt="" width={28} height={28} className="h-6 w-6" />
+              </span>
+              <span className="text-lg font-semibold text-ink">Suchama AI</span>
+            </div>
+
+            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#5E50E8]/20 bg-[#5E50E8]/[0.06] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[1px] text-[#5E50E8]">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#5E50E8]" />
+              AI Systems · Enterprise · B2B
+            </span>
+
+            <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-[-1px] text-[#0D0D0D] sm:text-5xl lg:text-[56px]">
+              Designing AI systems that turn complex supply chains{" "}
+              <span className="bg-gradient-to-r from-[#5E50E8] to-[#2C6ACE] bg-clip-text text-transparent">
+                into decisions.
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-[520px] text-base leading-[26px] text-[#555555]">
+              Led end-to-end design for Suchama AI, transforming manufacturing data into structured, actionable
+              insights for enterprise supply chain teams.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {HERO_PILLS.map((pill) => (
+                <span
+                  key={pill}
+                  className="rounded-full border border-black/10 bg-white px-4 py-2 text-[13px] font-medium text-[#333333]"
+                >
+                  {pill}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-black/10 pt-8">
+              {HERO_META.map((m) => (
+                <div key={m.label}>
+                  <p className="text-[11px] font-medium uppercase tracking-[1px] text-[#888888]">{m.label}</p>
+                  <p className="mt-1.5 text-sm font-medium text-ink">{m.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating product-screen collage */}
+          <div className="relative hidden lg:block lg:h-[480px]">
+            <div className="absolute -top-10 left-4 z-20 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-[#333333] shadow-lg">
+              <span aria-hidden className="h-2 w-2 rounded-full bg-[#5E50E8]" />
+              SAI analyzing production data...
+            </div>
+            <div className="absolute bottom-0 left-0 z-0 w-[58%] -rotate-3">
+              <LoginMock />
+            </div>
+            <div className="absolute right-0 top-10 z-10 w-[60%] rotate-2 drop-shadow-2xl">
+              <AIChatMock />
+            </div>
+            <div className="absolute -bottom-6 right-4 z-20 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-medium text-emerald-700 shadow-lg">
+              <span aria-hidden>✓</span> Plan generated
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SuchamaiAiPage() {
   return (
     <main className="flex-1 bg-paper">
-      <CaseStudyHero
-        eyebrow="AI Systems · Enterprise · B2B"
-        title="Designing AI systems that turn complex supply chains into decisions."
-        subtitle="Led end-to-end design for Suchama AI, transforming manufacturing data into structured, actionable insights for enterprise supply chain teams."
-        pills={["AI-led planning", "Reduced manual workflows", "Faster decision cycles"]}
-        meta={[
-          { label: "Role", value: "Product Designer" },
-          { label: "Period", value: "Feb – Oct 2025" },
-          { label: "Scope", value: "End-to-end" },
-        ]}
-        heroImage="/images/work-suchamai.png"
-        heroImageAlt="Suchama AI — supply chain planning website and AI assistant interface"
-      />
+      <SuchamaHero />
+      <SectionTabs />
 
       {/* Problem */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="problem" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
-        <div className="relative">
-          <SectionHeader eyebrow="01 · Problem" title="Manufacturing decisions are buried in data." />
-          <p className="mt-4 max-w-[720px] text-base leading-[27px] text-[#555555]">
-            Enterprise supply chain teams sit on enormous datasets, but they&apos;re scattered across disconnected
-            tools, formatted inconsistently, and never synthesised into a decision.
-          </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PROBLEMS.map((p) => (
-              <div key={p.title} className="rounded-xl border border-[#dedcd4] bg-white p-5">
-                <h3 className="text-sm font-semibold text-ink">{p.title}</h3>
-                <p className="mt-2 text-[13px] leading-5 text-[#555555]">{p.body}</p>
+        <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div>
+            <SectionHeader eyebrow="01 · Problem" title="Manufacturing decisions are buried in data." />
+            <p className="mt-4 max-w-[520px] text-base leading-[27px] text-[#555555]">
+              Enterprise supply chain teams sit on enormous datasets, but they&apos;re scattered across
+              disconnected tools, formatted inconsistently, and never synthesised into a decision.
+            </p>
+            <div className="mt-8 flex flex-col gap-3">
+              {PROBLEMS.map((p) => (
+                <div
+                  key={p.title}
+                  className="flex items-center gap-4 rounded-xl border border-y-[#5E50E8]/[0.13] border-r-[#5E50E8]/[0.13] border-l-4 border-l-[#5E50E8]/30 bg-white p-4 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)]"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1A1A2E] text-white">
+                    {p.icon}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-ink">{p.title}</h3>
+                    <p className="mt-1 text-[13px] leading-5 text-[#555555]">{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col gap-5 lg:pt-[76px]">
+            {PROBLEM_STATS.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl border border-[#5E50E8]/[0.19] bg-white p-7 shadow-[0_4px_16px_0_rgba(94,80,232,0.04)]"
+              >
+                <p className="text-5xl font-black leading-[1.1] tracking-[-1px] text-[#5E50E8]">{s.value}</p>
+                <p className="mt-3 text-sm leading-[22px] text-[#777777]">{s.label}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-10">
-            <StatRow stats={PROBLEM_STATS} />
           </div>
         </div>
       </section>
 
       {/* Research & Process */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="research" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
-        <div className="relative">
-          <SectionHeader eyebrow="02 · Research & Process" title="Understanding the enterprise supply chain workflow." />
-          <p className="mt-4 max-w-[760px] text-base leading-[27px] text-[#555555]">
-            Research spanned six weeks of contextual interviews with production managers, supply chain analysts, and
-            operations directors across three manufacturing enterprises — to understand not just the tools they use,
-            but the mental models they rely on when making decisions.
-          </p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((p, i) => (
-              <div key={p.title} className="rounded-xl border border-[#dedcd4] bg-white p-5">
-                <p className="text-xs font-bold text-[#888888]">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-3 text-sm font-semibold text-ink">{p.title}</h3>
-                <p className="mt-2 text-[13px] leading-5 text-[#555555]">{p.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14">
-            <p className="text-[11px] font-medium uppercase tracking-[1px] text-[#888888]">- Key Research Findings</p>
-            <div className="mt-6 grid gap-5 lg:grid-cols-3">
-              {RESEARCH_QUOTES.map((q) => (
-                <Quote key={q.attribution} text={q.text} attribution={q.attribution} />
+        <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div>
+            <SectionHeader eyebrow="02 · Research & Process" title="Understanding the enterprise supply chain workflow." />
+            <p className="mt-4 max-w-[520px] text-base leading-[27px] text-[#555555]">
+              Research spanned six weeks of contextual interviews with production managers, supply chain analysts,
+              and operations directors across three manufacturing enterprises — to understand not just the tools
+              they use, but the mental models they rely on when making decisions.
+            </p>
+            <div className="mt-8 flex flex-col gap-3">
+              {PROCESS.map((p, i) => (
+                <div
+                  key={p.title}
+                  className="flex items-center gap-4 rounded-xl border border-y-black/5 border-r-black/5 border-l-4 border-l-[#5E50E8] bg-white p-4 shadow-[0_2px_8px_0_rgba(0,0,0,0.04)]"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1A1A2E] text-white">
+                    {p.icon}
+                  </span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-[#5E50E8]">{String(i + 1).padStart(2, "0")}</span>
+                      <h3 className="text-sm font-semibold text-ink">{p.title}</h3>
+                    </div>
+                    <p className="mt-1 text-[13px] leading-5 text-[#555555]">{p.body}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-14">
-            <StatRow stats={RESEARCH_STATS} />
+          <div className="lg:pt-[76px]">
+            <p className="text-xs font-bold uppercase tracking-[1px] text-[#5E50E8]">Key Research Findings</p>
+            <div className="mt-5 flex flex-col gap-4">
+              {RESEARCH_QUOTES.map((q) => (
+                <blockquote
+                  key={q.attribution}
+                  className="rounded-2xl border border-[#5E50E8]/25 bg-white p-6 text-[15px] italic leading-[1.6] text-[#333333] shadow-[0_2px_8px_0_rgba(0,0,0,0.03)]"
+                >
+                  &ldquo;{q.text}&rdquo;
+                  <footer className="mt-3 text-xs font-medium not-italic text-[#5E50E8]">{q.attribution}</footer>
+                </blockquote>
+              ))}
+            </div>
+            <div className="mt-5 grid grid-cols-2 gap-4">
+              {RESEARCH_STATS.map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-[#5E50E8]/25 bg-white p-6 text-center shadow-[0_2px_8px_0_rgba(0,0,0,0.03)]"
+                >
+                  <p className="text-3xl font-black tracking-[-0.5px] text-ink">{s.value}</p>
+                  <p className="mt-1.5 text-xs text-[#777777]">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Core UX Challenge */}
-      <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="challenge" className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[720px] text-center">
           <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/40">- 03 · Core UX Challenge</p>
           <h2 className="mt-4 text-3xl font-semibold leading-[1.3] tracking-[-0.5px] text-white sm:text-4xl">
@@ -727,7 +950,7 @@ export default function SuchamaiAiPage() {
       </section>
 
       {/* Solution Framework */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="solution" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
           <SectionHeader eyebrow="04 · Solution Framework" title="How SAI turns complexity into clarity." />
@@ -769,7 +992,7 @@ export default function SuchamaiAiPage() {
       </section>
 
       {/* Key Experience */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="experience" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -817,7 +1040,7 @@ export default function SuchamaiAiPage() {
       </section>
 
       {/* Design Decisions */}
-      <section className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="decisions" className="bg-ink px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <SectionHeader eyebrow="06 · Design Decisions" title="Three decisions that shaped the system." tone="dark" />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {DESIGN_DECISIONS.map((d, i) => (
@@ -834,7 +1057,7 @@ export default function SuchamaiAiPage() {
       </section>
 
       {/* Product Screens */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="screens" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
           <SectionHeader eyebrow="07 · Product Screens" title="Curated product moments." />
@@ -886,7 +1109,7 @@ export default function SuchamaiAiPage() {
       </section>
 
       {/* Brand Identity */}
-      <section className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
+      <section id="brand" className="relative bg-paper px-6 py-20 sm:px-10 lg:px-20 lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
           <SectionHeader eyebrow="08 · Brand Identity" title="The Suchama AI brand language." />
@@ -967,6 +1190,7 @@ export default function SuchamaiAiPage() {
 
       {/* Outcome */}
       <section
+        id="outcome"
         className="px-6 py-20 sm:px-10 lg:px-20 lg:py-24"
         style={{ background: "linear-gradient(270deg, #1A2332 0%, rgba(0,0,0,0.9) 100%)" }}
       >

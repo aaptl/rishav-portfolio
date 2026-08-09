@@ -40,8 +40,8 @@ export default function ContactPage() {
           {/* Illustration side */}
           <div className="flex flex-col">
             <Image
-              src="/images/portrait.png"
-              alt="Portrait of Rishav Singh"
+              src="/images/contact-illustration.png"
+              alt="Illustration of a person designing at a desk"
               width={480}
               height={432}
               className="h-[280px] w-full rounded-2xl object-cover sm:h-[360px] lg:h-108"
