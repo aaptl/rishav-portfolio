@@ -157,8 +157,8 @@ export default function WiserSolutionsPage() {
             <Image
               src="/images/wiser-solutions/hero-box.png"
               alt="Wiser design system — component library preview"
-              width={1174}
-              height={1027}
+              width={1013}
+              height={705}
               priority
               className="relative h-auto w-full rounded-3xl object-cover"
             />

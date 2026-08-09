@@ -117,7 +117,7 @@ export default function AboutPage() {
               alt="Portrait of Rishav Singh"
               width={560}
               height={646}
-              className="w-full rounded-xl border border-dashed border-[#dedcd4] object-cover"
+              className="w-full grayscale rounded-xl border border-dashed border-[#dedcd4] object-cover"
               priority
             />
             <p className="mt-3 text-[11px] font-medium uppercase tracking-[1px] text-[#888888]">- Bio</p>

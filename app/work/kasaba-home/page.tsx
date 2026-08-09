@@ -30,7 +30,6 @@ const SAND = "#D4C5A9";
 const CREAM = "#F5F0E8";
 const BROWN = "#3B2316";
 const SAGE = "#6B7B4C";
-const HERO_WASH = "#3A0F12"; // deep maroon wash used only behind the hero photo
 
 const PILLARS = [
   {
@@ -58,12 +57,55 @@ const PALETTE = [
   { number: "05", name: "Olive Sage", hex: SAGE, usage: "Organic Flora Accent", text: CREAM },
 ];
 
-const APPLICATIONS = [
-  { src: "/images/kasaba-home/pottery-1.png", w: 853, h: 1280, title: "Hand-thrown Stoneware", body: "A tactile vessel for morning rituals, finished in a matte glaze that softens with use." },
-  { src: "/images/kasaba-home/mugs.png", w: 1024, h: 1024, title: "Sunday morning light", body: "A quiet moment with clay, sand, and the warmth of a home that feels like yours." },
-  { src: "/images/kasaba-home/pottery-2.png", w: 2731, h: 4096, title: "Kasaba Homes", body: "Handcrafted for homes with soul. Designed to age beautifully." },
-  { src: "/images/kasaba-home/vases-left.png", w: 1024, h: 1024, title: "Add some stripes", body: "Who knew a vase could steal the spotlight?" },
-  { src: "/images/kasaba-home/vases-right.png", w: 864, h: 1184, title: "Mugs that speak in lines and sips", body: "Sip between the lines. Feel at home with us." },
+// "Palette in context" — colors applied to real brand touchpoints
+const PALETTE_CONTEXT = [
+  { number: "01", hex: MAROON, ring: "#FFFFFF", text: CREAM, img: "palette-context-maroon.png", caption: "Packaging label / accent" },
+  { number: "02", hex: SAND, ring: "#FFFFFF", text: BROWN, img: "palette-context-sand.png", caption: "Background / surface" },
+  { number: "03", hex: CREAM, ring: BROWN, text: BROWN, img: "palette-context-cream.png", caption: "Contrast canvas / paper" },
+  { number: "04", hex: BROWN, ring: "#FFFFFF", text: CREAM, img: "palette-context-brown.png", caption: "Typography anchor / leather" },
+  { number: "05", hex: SAGE, ring: "#FFFFFF", text: CREAM, img: "palette-context-olive.png", caption: "Organic accent / flora" },
+];
+
+// Social Presence — mock Instagram grid posts, grouped by brand pillar
+const SOCIAL_PILLARS = [
+  {
+    number: "01",
+    title: "Craftsmanship",
+    subtitle: "(The Ceramic Process)",
+    posts: [
+      { img: "social-craft-1.png", quote: "The quiet geometry of a steady hand." },
+      { img: "social-craft-2.png", quote: "Centering. The moment before form takes shape." },
+      { img: "social-craft-3.png", quote: "Every striped cup carries a human devotion." },
+    ],
+  },
+  {
+    number: "02",
+    title: "Sustainability",
+    subtitle: "(Tactile Ecology)",
+    posts: [
+      { img: "social-sustain-1.png", quote: "Locally sourced, unhurriedly made." },
+      { img: "social-sustain-2.png", quote: "Clay returned to the earth, cleanly." },
+      { img: "social-sustain-3.png", quote: "Non-toxic glazes. Non-pollutive minds." },
+    ],
+  },
+  {
+    number: "03",
+    title: "Individuality",
+    subtitle: "(Personal Space)",
+    posts: [
+      { img: "social-individual-1.png", quote: "No two homes are identical." },
+      { img: "social-individual-2.png", quote: "Celebrate raw edges and wood firing." },
+      { img: "social-individual-3.png", quote: "Your shelf tells your unhurried story." },
+    ],
+  },
+];
+
+// Instagram Stories — 9:16 story mockups
+const STORIES = [
+  { img: "story-1.png", stamp: "evolving", headline: "Evolving - stay tuned.", sub: "The studio is reshaping. October 2025." },
+  { img: "story-2.png", stamp: "restocked", headline: "Sip Between the Lines.", sub: "Our striped mugs are back on shelves." },
+  { img: "story-3.png", stamp: "studio", headline: "Mindful Choices.", sub: "Behind-the-scenes with our artisans." },
+  { img: "story-4.png", stamp: "feel home", headline: "Feel at Home.", sub: "New homeware arrivals now live online." },
 ];
 
 function TagIcon() {
@@ -399,35 +441,367 @@ export default function KasabaHomePage() {
         </div>
       </section>
 
-      {/* Applications */}
-      <section className="px-4 pb-24 sm:px-6" style={{ backgroundColor: CREAM }}>
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[1.5px]" style={{ color: MAROON }}>
+      {/* Palette in Context */}
+      <section className="px-6 py-20 sm:px-10 sm:py-24 lg:px-[100px] lg:py-[140px]" style={{ backgroundColor: CREAM }}>
+        <p className="text-xs font-semibold uppercase tracking-[0.1667em]" style={{ color: MAROON }}>
+          Palette in context
+        </p>
+        <h2 className={`${cormorant.className} mt-4 text-3xl sm:text-4xl`} style={{ color: MAROON }}>
+          Colors applied to real brand touchpoints
+        </h2>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          {PALETTE_CONTEXT.map((c) => (
+            <div key={c.number} className="flex flex-col gap-3">
+              <div className="relative h-[220px] overflow-hidden rounded-2xl">
+                <Image src={`/images/kasaba-home/${c.img}`} alt={c.caption} fill className="object-cover" />
+                <span
+                  aria-hidden
+                  className="absolute left-3 top-3 flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold"
+                  style={{ backgroundColor: c.hex, color: c.text, boxShadow: `0 0 0 2px ${c.ring}` }}
+                >
+                  {c.number}
+                </span>
+              </div>
+              <p className="text-sm" style={{ color: BROWN }}>{c.caption}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Social Presence */}
+      <section className="px-6 py-20 sm:px-10 sm:py-24 lg:px-[100px] lg:py-[100px]" style={{ backgroundColor: CREAM }}>
+        <div className="flex flex-col gap-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: MAROON }}>
+            Social Presence
+          </p>
+          <h2 className={`${cormorant.className} text-4xl leading-[1.15] sm:text-5xl lg:text-[56px] lg:leading-[64px]`} style={{ color: MAROON }}>
+            Earthy Feeds, Mindful Conversations.
+          </h2>
+          <p className="max-w-[700px] text-base leading-[1.6] sm:text-lg" style={{ color: BROWN, opacity: 0.8 }}>
+            Our social strategy transforms transactional posts into editorial essays. High-contrast burgundy
+            backgrounds, tactile ceramic imagery, and warm, unhurried typography invite our community to pause.
+          </p>
+        </div>
+
+        <div className="mt-16 flex flex-col gap-16">
+          {SOCIAL_PILLARS.map((pillar) => (
+            <div key={pillar.number} className="flex flex-col gap-6">
+              <div className="flex flex-wrap items-baseline gap-3">
+                <p className={`${cormorant.className} text-2xl sm:text-[28px]`} style={{ color: MAROON }}>
+                  Pillar {pillar.number} —
+                </p>
+                <p className="text-sm font-semibold uppercase tracking-[0.1429em]" style={{ color: MAROON }}>
+                  {pillar.title} {pillar.subtitle}
+                </p>
+              </div>
+              <div className="grid gap-6 sm:grid-cols-3">
+                {pillar.posts.map((post, i) => (
+                  <div
+                    key={post.img}
+                    className="relative flex aspect-square flex-col justify-between overflow-hidden rounded-lg p-8 shadow-[0_8px_16px_0_rgba(0,0,0,0.08)]"
+                  >
+                    <Image src={`/images/kasaba-home/${post.img}`} alt="" fill aria-hidden className="object-cover" />
+                    <div aria-hidden className="absolute inset-0" style={{ backgroundColor: "rgba(91, 36, 39, 0.72)" }} />
+                    <div className="relative z-10 flex items-center justify-between">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.1818em]" style={{ color: SAND }}>
+                        {pillar.title}
+                      </p>
+                      <p className="text-[11px]" style={{ color: SAND, opacity: 0.6 }}>{i + 1}/4</p>
+                    </div>
+                    <p className={`${cormorant.className} relative z-10 text-[28px] leading-[1.15]`} style={{ color: "#FAF8F5" }}>
+                      {post.quote}
+                    </p>
+                    <div className="relative z-10 flex items-center justify-between">
+                      <p className="text-xs" style={{ color: SAND }}>@kasabahomes</p>
+                      <span className="flex h-4 w-4 items-center justify-center">
+                        <Image src="/images/kasaba-home/icon-arrow-right.svg" alt="" width={16} height={16} />
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Instagram Stories */}
+      <section className="px-6 py-20 sm:px-10 sm:py-24 lg:px-[100px] lg:py-[100px]" style={{ backgroundColor: MAROON }}>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: SAND }}>
+            Ephemeral Narrative
+          </p>
+          <h2 className={`${cormorant.className} text-4xl sm:text-5xl`} style={{ color: CREAM }}>
+            Behind the Kiln: Daily Moments
+          </h2>
+          <p className="max-w-[700px] text-base leading-[1.5]" style={{ color: SAND, opacity: 0.8 }}>
+            A cohesive system of 9:16 layout structures utilizing our brand typography, tactile image grids, and
+            hand-drawn organic green stamps to communicate daily studio rhythms.
+          </p>
+        </div>
+
+        <div className="mt-16 flex flex-wrap justify-center gap-8">
+          {STORIES.map((story) => (
+            <div
+              key={story.img}
+              className="relative flex h-[462px] w-[260px] flex-col justify-between overflow-hidden rounded-xl border p-6"
+              style={{ borderColor: "#FAF8F5" }}
+            >
+              <Image src={`/images/kasaba-home/${story.img}`} alt="" fill aria-hidden className="object-cover" />
+              <div aria-hidden className="absolute inset-0" style={{ backgroundColor: "rgba(91, 36, 39, 0.6)" }} />
+              <div className="relative z-10 flex items-center justify-between">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.3em]" style={{ color: SAND }}>
+                  Kasaba Homes
+                </p>
+                <Image src="/images/kasaba-home/icon-ellipsis.svg" alt="" width={14} height={14} />
+              </div>
+              <span
+                className="absolute left-1/2 top-[37%] -translate-x-1/2 rounded px-4 py-2 text-lg lowercase shadow-[0_2px_6px_0_rgba(0,0,0,0.25)]"
+                style={{ backgroundColor: SAGE, color: "#FAF8F5" }}
+              >
+                {story.stamp}
+              </span>
+              <div className="relative z-10 flex flex-col gap-2">
+                <p className={`${cormorant.className} text-[28px] leading-[1.15]`} style={{ color: "#FAF8F5" }}>
+                  {story.headline}
+                </p>
+                <p className="text-xs" style={{ color: SAND, opacity: 0.8 }}>{story.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Product Strips */}
+      <section className="flex flex-col gap-20 py-20 sm:py-24 lg:py-[100px]" style={{ backgroundColor: CREAM }}>
+        <div className="flex flex-col gap-5 px-6 sm:px-10 lg:px-[100px]">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: MAROON }}>
             Product Showcase
           </p>
-          <h2 className={`${cormorant.className} mt-4 text-4xl sm:text-5xl`} style={{ color: BROWN }}>
-            Playful copy meets tactile craft.
+          <h2 className={`${cormorant.className} text-4xl leading-[1.15] sm:text-5xl lg:text-[56px] lg:leading-[64px]`} style={{ color: MAROON }}>
+            Playful copy meets raw torn paper.
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {APPLICATIONS.map((app) => (
-              <div key={app.src} className="overflow-hidden rounded-2xl border bg-white" style={{ borderColor: SAND }}>
-                <Image src={app.src} alt={app.title} width={app.w} height={app.h} className="h-64 w-full object-cover" />
-                <div className="p-5">
-                  <p className={`${cormorant.className} text-xl`} style={{ color: MAROON }}>{app.title}</p>
-                  <p className="mt-2 text-[13px] leading-5 opacity-70" style={{ color: BROWN }}>{app.body}</p>
-                </div>
-              </div>
-            ))}
+          <p className="max-w-[700px] text-base leading-[1.6]" style={{ color: BROWN, opacity: 0.7 }}>
+            Full-bleed editorial layouts celebrating the product line - mugs, vases, and vessels - each strip a
+            visual composition in its own right.
+          </p>
+        </div>
+
+        {/* Mugs strip */}
+        <div className="relative aspect-[1400/640] w-full overflow-hidden" style={{ backgroundColor: BROWN }}>
+          <div className="absolute rounded-lg" style={{ left: "2.86%", top: "6.25%", width: "31.43%", height: "87.5%" }}>
+            <Image src="/images/kasaba-home/strip-mugs-left.png" alt="Hand-thrown mugs, close detail" fill className="rounded-lg object-cover" />
+          </div>
+          <div className="absolute overflow-hidden rounded shadow-[0_6px_14px_0_rgba(0,0,0,0.1)]" style={{ left: "32.46%", top: "9.38%", width: "34.66%", height: "27.6%" }}>
+            <Image src="/images/kasaba-home/strip-torn-paper.png" alt="" aria-hidden fill className="object-cover" />
+          </div>
+          <div
+            className="absolute flex flex-col items-center justify-center gap-2 rounded p-4 text-center sm:gap-3 sm:p-6 lg:gap-4 lg:p-12"
+            style={{ left: "38.57%", top: "31.25%", width: "30%", height: "50%", backgroundColor: SAGE }}
+          >
+            <p className="text-base leading-tight sm:text-2xl lg:text-[48px] lg:leading-[44px]" style={{ color: "#FAF8F5" }}>
+              Mugs that Speak in Lines and Sips.
+            </p>
+            <p className="text-[10px] sm:text-xs lg:text-sm" style={{ color: SAND, opacity: 0.8 }}>
+              Sip Between the Lines. Feel at Home with Us.
+            </p>
+          </div>
+          <div className="absolute rounded-lg" style={{ left: "71.43%", top: "18.75%", width: "25.71%", height: "62.5%" }}>
+            <Image src="/images/kasaba-home/strip-mugs-right.png" alt="Kasaba mugs styled on a shelf" fill className="rounded-lg object-cover" />
+          </div>
+          <div className="absolute" style={{ left: "28.22%", top: "75%", width: "10.17%", height: "22.24%" }}>
+            <Image src="/images/kasaba-home/icon-organic-stamp.svg" alt="" aria-hidden fill className="object-contain" />
+          </div>
+        </div>
+
+        {/* Vases strip */}
+        <div className="relative aspect-[1400/640] w-full overflow-hidden" style={{ backgroundColor: MAROON }}>
+          <div className="absolute rounded-lg" style={{ left: "4.29%", top: "18.75%", width: "27.14%", height: "62.5%" }}>
+            <Image src="/images/kasaba-home/strip-vases-left.png" alt="Striped vases, styled" fill className="rounded-lg object-cover" />
+          </div>
+          <div
+            className="absolute flex flex-col items-center justify-center gap-2 rounded p-4 text-center sm:gap-3 sm:p-6 lg:gap-4 lg:p-12"
+            style={{ left: "34.29%", top: "22.6%", width: "32.21%", height: "52.37%", backgroundColor: SAGE }}
+          >
+            <p className="text-base leading-tight sm:text-2xl lg:text-[44px] lg:leading-[42px]" style={{ color: "#FAF8F5" }}>
+              Add some Stripes to Your Space!
+            </p>
+            <p className="text-[10px] sm:text-xs lg:text-sm" style={{ color: SAND, opacity: 0.8 }}>
+              Who knew a vase could steal the spotlight?
+            </p>
+          </div>
+          <div className="absolute overflow-hidden rounded shadow-[0_6px_14px_0_rgba(0,0,0,0.1)]" style={{ left: "62.86%", top: "10.6%", width: "33.57%", height: "29.95%" }}>
+            <Image src="/images/kasaba-home/strip-torn-paper.png" alt="" aria-hidden fill className="object-cover" />
+          </div>
+          <div className="absolute rounded-lg" style={{ left: "68.57%", top: "6.25%", width: "28.57%", height: "87.5%" }}>
+            <Image src="/images/kasaba-home/strip-vases-right.png" alt="Kasaba vase, full length" fill className="rounded-lg object-cover" />
+          </div>
+          <div className="absolute" style={{ left: "61.43%", top: "63.9%", width: "10.5%", height: "22.96%" }}>
+            <Image src="/images/kasaba-home/icon-organic-stamp.svg" alt="" aria-hidden fill className="object-contain" />
           </div>
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="px-4 py-24 text-center sm:px-6" style={{ backgroundColor: MAROON }}>
-        <p className="text-[11px] font-medium uppercase tracking-[3px] text-white/60">Kasaba Homes · 2025</p>
-        <p className={`${cormorant.className} mx-auto mt-6 max-w-[640px] text-4xl italic leading-[1.4] text-white sm:text-5xl`}>
-          Made slowly · Cherished truly
-        </p>
+      {/* Brand Guidelines */}
+      <section className="px-6 py-20 sm:px-10 sm:py-24 lg:px-[100px] lg:py-[100px]" style={{ backgroundColor: CREAM }}>
+        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
+          <div className="flex max-w-[640px] flex-col gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: MAROON }}>
+              The Blueprint
+            </p>
+            <h2 className={`${cormorant.className} text-4xl leading-[1.15] sm:text-5xl lg:text-[56px] lg:leading-[64px]`} style={{ color: MAROON }}>
+              Brand Guidelines Spread
+            </h2>
+            <p className="text-base leading-[1.5]" style={{ color: BROWN, opacity: 0.8 }}>
+              An editorial layout guidelines document crafted to maintain visual and physical alignment across our
+              packaging, partner studios, and visual assets.
+            </p>
+          </div>
+          <span
+            className="flex-shrink-0 whitespace-nowrap rounded-lg px-7 py-3.5 text-[11px] font-bold uppercase tracking-[0.1818em]"
+            style={{ backgroundColor: MAROON, color: "#FAF8F5" }}
+          >
+            Guidelines v1.0
+          </span>
+        </div>
+
+        <div className="mt-16 flex gap-6 overflow-x-auto rounded-2xl p-6 sm:p-12" style={{ backgroundColor: SAND }}>
+          {/* Page 01 — Cover */}
+          <div className="flex h-[320px] w-[240px] flex-shrink-0 flex-col gap-3 rounded p-6 shadow-[2px_4px_12px_0_rgba(59,35,22,0.1)]" style={{ backgroundColor: "#FAF8F5" }}>
+            <div className="flex items-center justify-between">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.125em]" style={{ color: MAROON }}>Kasaba Homes</p>
+              <p className="text-[8px]" style={{ color: BROWN, opacity: 0.5 }}>01</p>
+            </div>
+            <div className="flex flex-1 flex-col justify-center gap-3">
+              <p className={`${cormorant.className} text-xl`} style={{ color: MAROON }}>kasaba Homes</p>
+              <p className="text-[10px]" style={{ color: BROWN, opacity: 0.6 }}>
+                Brand Guidelines, Identity Blueprint and Design System.
+              </p>
+              <div className="flex flex-col items-center gap-2">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full" style={{ backgroundColor: MAROON }}>
+                  <Image src="/images/kasaba-home/kasaba-icon-mark.svg" alt="" width={28} height={15} />
+                </span>
+                <p className={`${cormorant.className} text-sm`} style={{ color: MAROON }}>kasaba Homes</p>
+              </div>
+            </div>
+            <div className="h-px w-full" style={{ backgroundColor: "rgba(59, 35, 22, 0.12)" }} />
+          </div>
+
+          {/* Page 02 — Logomark */}
+          <div className="flex h-[320px] w-[240px] flex-shrink-0 flex-col gap-3 rounded p-6 shadow-[2px_4px_12px_0_rgba(59,35,22,0.1)]" style={{ backgroundColor: "#FAF8F5" }}>
+            <div className="flex items-center justify-between">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.125em]" style={{ color: MAROON }}>Kasaba Homes</p>
+              <p className="text-[8px]" style={{ color: BROWN, opacity: 0.5 }}>02</p>
+            </div>
+            <div className="flex flex-1 flex-col items-center gap-3 text-center">
+              <p className={`${cormorant.className} text-xl`} style={{ color: MAROON }}>The Logomark</p>
+              <Image src="/images/kasaba-home/kasaba-icon-mark.svg" alt="" width={40} height={21} />
+              <p className="text-[9px]" style={{ color: BROWN, opacity: 0.6 }}>
+                The primary horse emblem represents steady craft. Clear space limits apply.
+              </p>
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="flex h-[80px] w-[80px] items-center justify-center rounded-lg border" style={{ borderColor: "rgba(59, 35, 22, 0.12)" }}>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: MAROON }}>
+                    <Image src="/images/kasaba-home/kasaba-icon-mark.svg" alt="" width={20} height={11} />
+                  </span>
+                </div>
+                <p className="text-[9px]" style={{ color: BROWN, opacity: 0.6 }}>Minimum clear space: x</p>
+              </div>
+            </div>
+            <div className="h-px w-full" style={{ backgroundColor: "rgba(59, 35, 22, 0.12)" }} />
+          </div>
+
+          {/* Page 03 — Color Code */}
+          <div className="flex h-[320px] w-[240px] flex-shrink-0 flex-col gap-3 rounded p-6 shadow-[2px_4px_12px_0_rgba(59,35,22,0.1)]" style={{ backgroundColor: "#FAF8F5" }}>
+            <div className="flex items-center justify-between">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.125em]" style={{ color: MAROON }}>Kasaba Homes</p>
+              <p className="text-[8px]" style={{ color: BROWN, opacity: 0.5 }}>03</p>
+            </div>
+            <p className={`${cormorant.className} text-xl`} style={{ color: MAROON }}>Color Code</p>
+            <div className="flex flex-col gap-2">
+              {[{ hex: MAROON, label: "#5B2427 Burgundy" }, { hex: SAND, label: "#D4C5A9 Sand Clay" }, { hex: SAGE, label: "#6B7B4C Olive Sage" }].map((c) => (
+                <div key={c.label} className="flex items-center gap-2">
+                  <span className="h-5 w-5 flex-shrink-0 rounded-sm" style={{ backgroundColor: c.hex }} />
+                  <p className="text-[9px]" style={{ color: BROWN }}>{c.label}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col gap-2 pt-2">
+              <p className="text-[9px] font-medium uppercase tracking-[0.1111em]" style={{ color: BROWN, opacity: 0.6 }}>Usage</p>
+              {[{ hex: MAROON, label: "Primary / Headings" }, { hex: SAND, label: "Secondary / Background" }, { hex: SAGE, label: "Accent / Stamps" }].map((c) => (
+                <div key={c.label} className="flex items-center gap-2">
+                  <span className="h-3 w-3 flex-shrink-0 rounded-sm" style={{ backgroundColor: c.hex }} />
+                  <p className="text-[9px]" style={{ color: BROWN, opacity: 0.6 }}>{c.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Page 04 — Visual Aura */}
+          <div className="flex h-[320px] w-[240px] flex-shrink-0 flex-col gap-3 rounded p-6 shadow-[2px_4px_12px_0_rgba(59,35,22,0.1)]" style={{ backgroundColor: "#FAF8F5" }}>
+            <div className="flex items-center justify-between">
+              <p className="text-[8px] font-semibold uppercase tracking-[0.125em]" style={{ color: MAROON }}>Kasaba Homes</p>
+              <p className="text-[8px]" style={{ color: BROWN, opacity: 0.5 }}>04</p>
+            </div>
+            <p className={`${cormorant.className} text-xl`} style={{ color: MAROON }}>Visual Aura</p>
+            <p className="text-[9px]" style={{ color: BROWN, opacity: 0.6 }}>
+              Warm, soft atmospheric lighting. Raw clay and tactile, natural fiber backgrounds.
+            </p>
+            <div className="flex gap-2">
+              <div className="relative h-14 w-14 overflow-hidden rounded">
+                <Image src="/images/kasaba-home/moodboard-lifestyle.png" alt="" fill className="object-cover" />
+              </div>
+              <div className="relative h-14 w-14 overflow-hidden rounded">
+                <Image src="/images/kasaba-home/strip-torn-paper.png" alt="" fill className="object-cover" />
+              </div>
+              <div className="relative h-14 w-14 overflow-hidden rounded">
+                <Image src="/images/kasaba-home/strip-mugs-left.png" alt="" fill className="object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Thank You */}
+      <section className="flex flex-col items-center gap-10 px-6 py-20 text-center sm:px-10 sm:py-24 lg:px-[100px] lg:pb-20 lg:pt-[100px]" style={{ backgroundColor: MAROON }}>
+        <div className="flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center gap-5">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3636em]" style={{ color: SAND, opacity: 0.6 }}>
+              Kasaba Homes · 2025
+            </p>
+            <h2 className={`${cormorant.className} text-5xl leading-[1.05] sm:text-6xl lg:text-[88px] lg:leading-[90px]`} style={{ color: CREAM }}>
+              Thank you for exploring.
+            </h2>
+          </div>
+          <div className="flex items-center gap-6 sm:gap-10">
+            <span className="h-px w-16 sm:w-[120px]" style={{ backgroundColor: "rgba(212, 197, 169, 0.25)" }} />
+            <span className={`${cormorant.className} text-lg tracking-[0.0556em]`} style={{ color: SAND, opacity: 0.7 }}>✦</span>
+            <span className="h-px w-16 sm:w-[120px]" style={{ backgroundColor: "rgba(212, 197, 169, 0.25)" }} />
+          </div>
+          <p className="text-[13px] uppercase tracking-[0.3077em]" style={{ color: SAND, opacity: 0.6 }}>
+            Made slowly · Cherished truly
+          </p>
+        </div>
+
+        <div className="h-px w-full" style={{ backgroundColor: "rgba(250, 248, 245, 0.03)" }} />
+
+        <div className="flex w-full flex-col items-center gap-8 py-5 sm:flex-row sm:items-start sm:justify-between sm:text-left">
+          <div className="flex flex-col gap-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em]" style={{ color: SAND, opacity: 0.5 }}>
+              Brand Identity &amp; Creative
+            </p>
+            <p className={`${cormorant.className} text-xl`} style={{ color: CREAM, opacity: 0.8 }}>Rishav Singh</p>
+          </div>
+          <div className="flex flex-col gap-3 sm:items-end">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em]" style={{ color: SAND, opacity: 0.5 }}>
+              Portfolio System
+            </p>
+            <p className={`${cormorant.className} text-xl`} style={{ color: CREAM, opacity: 0.5 }}>© 2025 All Rights Reserved</p>
+          </div>
+        </div>
+
+        <Image src="/images/kasaba-home/kasaba-icon-mark.svg" alt="Kasaba Homes" width={250} height={133} className="h-auto w-[150px] sm:w-[200px]" />
       </section>
 
       {/* More Branding Work */}

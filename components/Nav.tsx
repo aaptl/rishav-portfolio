@@ -11,14 +11,17 @@ const LINKS = [
 export default function Nav({
   active,
   blur = true,
+  light = false,
 }: {
   active?: "Work" | "Resume" | "Archive" | "About" | "Contact";
   blur?: boolean;
+  /** Use dark-ink text instead of white — for hero sections on a light background. */
+  light?: boolean;
 }) {
   return (
     <header className={`absolute inset-x-0 top-0 z-20 ${blur ? "backdrop-blur-sm" : ""}`}>
       <div className="flex items-center justify-between px-6 py-8 sm:px-10 lg:px-20">
-        <Link href="/" className="text-[17px] text-white">
+        <Link href="/" className={`text-[17px] ${light ? "text-ink" : "text-white"}`}>
           Rishav Singh
         </Link>
         <nav className="flex items-center gap-6 sm:gap-12">
@@ -28,8 +31,12 @@ export default function Nav({
               href={href}
               className={`pb-1 text-xs font-medium tracking-[0.2px] transition-colors ${
                 active === label
-                  ? "border-b border-white text-white"
-                  : "text-white/40 hover:text-white"
+                  ? light
+                    ? "border-b border-ink text-ink"
+                    : "border-b border-white text-white"
+                  : light
+                    ? "text-ink/40 hover:text-ink"
+                    : "text-white/40 hover:text-white"
               }`}
             >
               {label}
