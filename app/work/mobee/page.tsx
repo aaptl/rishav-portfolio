@@ -64,10 +64,18 @@ export default function MobeePage() {
     <main className="flex-1 bg-white">
       <MobeeHero
         badge="UX Research & Product Strategy Case Study"
+        badgeIcon
         chapter="Mobee · Letter of Authorization"
         title="Reducing Retail Survey Abandonment Through Trust-First UX"
+        titleAccent="Trust-First UX"
+        divider
+        dotPattern
         subtitle="Retail survey participants frequently abandoned missions after being questioned by store employees. Rather than redesigning the survey itself, we redesigned trust. A simple authorization letter reduced hesitation, increased confidence and significantly improved mission completion."
-        meta={["⏱ 6 Weeks", "👤 10,000+ Active Shoppers", "📈 +5-15% Coverage Speed"]}
+        stats={[
+          { icon: "clock", value: "6 Weeks" },
+          { icon: "user", value: "10,000+", label: "Active Shoppers" },
+          { icon: "trend", value: "+5-15%", label: "Coverage Speed" },
+        ]}
         visuals={[
           { src: "/images/mobee/hero-loa-left.png", alt: "Mobee — mission brief screen", width: 430, height: 932 },
           { src: "/images/mobee/hero-loa-center.png", alt: "Mobee — survey screen", width: 860, height: 1852 },

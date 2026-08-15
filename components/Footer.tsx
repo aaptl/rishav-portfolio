@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SOCIALS = [
-  { label: "Behance", href: "#", icon: "/icons/behance.svg", size: 24 },
-  { label: "Instagram", href: "#", icon: "/icons/instagram.svg", size: 18 },
-  { label: "Dribbble", href: "#", icon: "/icons/dribbble.svg", size: 18 },
+  { label: "Behance", href: "https://www.behance.net/rishavsingh46", icon: "/icons/behance.svg", size: 24 },
+  { label: "Dribbble", href: "https://dribbble.com/rishavdesign", icon: "/icons/dribbble.svg", size: 18 },
+  { label: "WhatsApp", href: "https://wa.me/qr/BWEYWAGY7CQZB1", icon: "/icons/whatsapp.svg", size: 18 },
 ];
 
 export default function Footer() {
@@ -37,6 +37,8 @@ export default function Footer() {
             <a
               key={label}
               href={href}
+              target={href === "#" ? undefined : "_blank"}
+              rel={href === "#" ? undefined : "noopener noreferrer"}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/8 px-3.5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-white/25"
             >
               <Image src={icon} alt="" width={size} height={size} />

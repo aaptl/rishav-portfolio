@@ -150,7 +150,12 @@ export default function WorkExplorer() {
             </button>
           ))}
         </div>
-        <a href="#" className="mt-4 inline-block text-[13px] text-[#6b7280] transition-colors hover:text-ink">
+        <a
+          href="https://www.behance.net/rishavsingh46"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block text-[13px] text-[#6b7280] transition-colors hover:text-ink"
+        >
           {tab.exploreLabel}
         </a>
       </div>
