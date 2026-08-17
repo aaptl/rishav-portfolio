@@ -86,7 +86,7 @@ export default function AboutPage() {
       <section className="dark-wash relative min-h-[680px] overflow-hidden">
         <HeroBackdrop />
         <Nav active="About" />
-        <div className="relative z-10 mx-auto flex min-h-[680px] max-w-[640px] flex-col items-center justify-center px-6 py-32 text-center">
+        <div className="relative z-10 mx-auto flex min-h-[680px] max-w-[1000px] flex-col items-center justify-center px-6 py-32 text-center">
           <p className="text-[11px] font-medium uppercase tracking-[1px] text-white/50">
             Product Designer • AI Systems • Design Systems
           </p>

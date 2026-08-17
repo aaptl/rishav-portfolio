@@ -23,7 +23,7 @@ const GALLERY = [
   { src: "/images/introducing-india/04.png", alt: "Introducing India — brand detail", w: 1728, h: 632 },
   { src: "/images/introducing-india/05-78f21b.png", alt: "Introducing India — heritage motif study", w: 1614, h: 927 },
   { src: "/images/introducing-india/06.png", alt: "Introducing India — full spread", w: 2800, h: 1398 },
-  { src: "/images/introducing-india/07.png", alt: "Introducing India — visual identity study", w: 1480, h: 928 },
+  { src: "/images/introducing-india/07.gif", alt: "Introducing India — visual identity study", w: 1480, h: 928 },
   { src: "/images/introducing-india/08-508b29.png", alt: "Introducing India — brand application", w: 1908, h: 920 },
   { src: "/images/introducing-india/09-2dfda2.png", alt: "Introducing India — brand application", w: 1898, h: 920 },
   { src: "/images/introducing-india/10-66527d.png", alt: "Introducing India — brand application", w: 1920, h: 1357 },
@@ -50,17 +50,30 @@ export default function IntroducingIndiaPage() {
       <section className="relative bg-paper">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative flex flex-col">
-          {GALLERY.map((image, i) => (
-            <Image
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              width={image.w}
-              height={image.h}
-              className="w-full"
-              priority={i === 0}
-            />
-          ))}
+          {GALLERY.map((image, i) =>
+            image.src.endsWith(".gif") ? (
+              // eslint-disable-next-line @next/next/no-img-element -- native <img> so the browser animates the GIF itself, bypassing next/image entirely
+              <img
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                width={image.w}
+                height={image.h}
+                loading="lazy"
+                className="w-full"
+              />
+            ) : (
+              <Image
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                width={image.w}
+                height={image.h}
+                className="w-full"
+                priority={i === 0}
+              />
+            ),
+          )}
         </div>
       </section>
 

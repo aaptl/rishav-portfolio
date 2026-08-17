@@ -33,7 +33,9 @@ export default function WorkPage() {
             </p>
           </div>
           <a
-            href="#"
+            href="https://www.behance.net/rishavsingh46"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-[#111827] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,0.08)] transition-opacity hover:opacity-90"
           >
             See more on Behance →

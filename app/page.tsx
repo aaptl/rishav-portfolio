@@ -132,7 +132,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="dark-wash relative min-h-[820px] overflow-hidden">
         <HeroBackdrop />
-        <Nav active="Work" />
+        <Nav />
         <div className="relative z-10 mx-auto flex min-h-[820px] max-w-[1160px] flex-col items-center justify-center px-6 pb-24 pt-32 text-center">
           <h1 className="text-5xl leading-[1.1] tracking-[-2px] text-white sm:text-6xl lg:text-[80px]">
             The gap between good and great is almost always a design decision.
