@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from "@/lib/site";
+import MotionProvider from "@/components/motion/MotionProvider";
+import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import "./globals.css";
 
 const personJsonLd = {
@@ -62,7 +64,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        {children}
+        <MotionProvider>
+          <SmoothScrollProvider />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );

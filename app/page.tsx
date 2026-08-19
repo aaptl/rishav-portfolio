@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import LogoMarquee from "@/components/LogoMarquee";
 import CtaStrip from "@/components/CtaStrip";
+import Reveal from "@/components/motion/Reveal";
+import AnimatedText from "@/components/motion/AnimatedText";
+import MagneticLink from "@/components/motion/MagneticLink";
 import { CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -134,27 +137,31 @@ export default function HomePage() {
         <HeroBackdrop />
         <Nav />
         <div className="relative z-10 mx-auto flex min-h-[820px] max-w-[1160px] flex-col items-center justify-center px-6 pb-24 pt-32 text-center">
-          <h1 className="text-5xl leading-[1.1] tracking-[-2px] text-white sm:text-6xl lg:text-[80px]">
-            The gap between good and great is almost always a design decision.
-          </h1>
-          <p className="mt-8 max-w-[933px] text-lg leading-relaxed text-[#99a1af] sm:text-xl">
-            I&apos;m Rishav — an independent product &amp; systems designer who turns complexity into clarity across AI
-            products, SaaS platforms, and every system in between.
-          </p>
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-2.5">
-            <Link
+          <AnimatedText
+            as="h1"
+            text="The gap between good and great is almost always a design decision."
+            className="text-5xl leading-[1.1] tracking-[-2px] text-white sm:text-6xl lg:text-[80px]"
+          />
+          <Reveal delay={0.4}>
+            <p className="mt-8 max-w-[933px] text-lg leading-relaxed text-[#99a1af] sm:text-xl">
+              I&apos;m Rishav — an independent product &amp; systems designer who turns complexity into clarity across AI
+              products, SaaS platforms, and every system in between.
+            </p>
+          </Reveal>
+          <Reveal delay={0.55} className="mt-14 flex flex-wrap items-center justify-center gap-2.5">
+            <MagneticLink
               href="/work"
               className="rounded-full bg-white px-8 py-4 text-base font-medium text-ink transition-transform hover:scale-[1.03]"
             >
               Explore Work
-            </Link>
+            </MagneticLink>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
               className="rounded-full border border-white/50 bg-navy/30 px-8 py-4 text-base font-medium text-white transition-colors hover:bg-navy/60"
             >
               Let&apos;s Connect
             </a>
-          </div>
+          </Reveal>
           <svg
             aria-hidden
             viewBox="0 0 24 24"
@@ -181,22 +188,22 @@ export default function HomePage() {
       <section className="relative bg-paper px-6 py-16 sm:px-10 lg:px-20">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative space-y-8">
-          <div>
+          <Reveal>
             <p className="text-[11px] font-medium tracking-[1.3px] text-[#999999]">- Expertise</p>
             <h2 className="mt-1 max-w-[1142px] text-3xl font-medium leading-[1.2] sm:text-4xl lg:text-5xl">
               <span className="text-[#9ca3af]">I&apos;ll help you to </span>
               <span className="text-ink">create clarity on what matters and the confidence to act on it.</span>
             </h2>
-          </div>
+          </Reveal>
           <div className="grid gap-6 border-t border-[#d8d0c3] pt-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-            {EXPERTISE_CARDS.map((card) => (
-              <article key={card.title} className="rounded-lg border border-[#d0d0d0]/35 bg-white p-8">
+            {EXPERTISE_CARDS.map((card, i) => (
+              <Reveal key={card.title} delay={i * 0.1} className="rounded-lg border border-[#d0d0d0]/35 bg-white p-8">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0d0d0d] text-white">
                   {card.icon}
                 </div>
                 <h3 className="mt-4 text-xl font-bold text-ink">{card.title}</h3>
                 <p className="mt-3 text-base leading-snug text-[#555555]">{card.body}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -208,7 +215,7 @@ export default function HomePage() {
         <div className="relative z-10">
           <p className="text-[10px] font-medium tracking-[3px] text-white/50">FEATURED CASE STUDY</p>
           <div className="mt-11 grid items-start gap-12 lg:grid-cols-2">
-            <div>
+            <Reveal>
               <h2 className="max-w-[606px] text-3xl font-semibold leading-[1.33] tracking-[-0.5px] text-white sm:text-4xl lg:text-5xl lg:leading-[64px]">
                 I recently led design at Trovex.ai — shaping the AI roleplay experience from strategy through
                 production.
@@ -228,14 +235,16 @@ export default function HomePage() {
               <p className="mt-8 text-[11px] font-medium tracking-[0.6px] text-white/40">
                 Lead Designer &nbsp;·&nbsp; UX Strategy &nbsp;·&nbsp; Design Systems &nbsp;·&nbsp; Product Strategy
               </p>
-            </div>
-            <Image
-              src="/images/trovex-featured.png"
-              alt="Trovex.ai product — AI roleplay training platform dashboard and live call UI"
-              width={692}
-              height={478}
-              className="w-full rounded-[32px] border border-white/10"
-            />
+            </Reveal>
+            <Reveal delay={0.15}>
+              <Image
+                src="/images/trovex-featured.png"
+                alt="Trovex.ai product — AI roleplay training platform dashboard and live call UI"
+                width={692}
+                height={478}
+                className="w-full rounded-[32px] border border-white/10"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -244,14 +253,17 @@ export default function HomePage() {
       <section className="relative bg-paper px-6 py-16 sm:px-10 lg:px-20 lg:py-[72px]">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines-light" />
         <div className="relative">
-          <h2 className="text-4xl font-medium tracking-[-0.5px] text-ink lg:text-5xl">Work.</h2>
-          <p className="mt-3 text-lg text-[#aaaaaa]">
-            Projects selected for what they demanded of me — not just what they delivered.
-          </p>
+          <Reveal>
+            <h2 className="text-4xl font-medium tracking-[-0.5px] text-ink lg:text-5xl">Work.</h2>
+            <p className="mt-3 text-lg text-[#aaaaaa]">
+              Projects selected for what they demanded of me — not just what they delivered.
+            </p>
+          </Reveal>
           <div className="mt-16 space-y-16 lg:space-y-[72px]">
             {WORK_PROJECTS.map((project) => (
-              <article
+              <Reveal
                 key={project.title}
+                as="article"
                 className={`flex flex-col items-center gap-10 lg:flex-row ${
                   project.imageLeft ? "" : "lg:flex-row-reverse"
                 }`}
@@ -262,22 +274,22 @@ export default function HomePage() {
                     alt={project.imageAlt}
                     width={695}
                     height={495}
-                    className="w-full max-w-[695px] rounded-[32px]"
+                    className="w-full max-w-[695px] rounded-[32px] transition-transform duration-500 hover:scale-[1.02]"
                   />
                 </Link>
                 <div className="lg:w-1/2 lg:max-w-[580px]">
                   <p className="text-xs font-bold tracking-wide text-[#575f4e]">{project.tag}</p>
                   <h3 className="mt-5 text-3xl font-semibold text-ink lg:text-[40px]">{project.title}</h3>
                   <p className="mt-5 text-lg leading-[26px] text-[#454841]">{project.body}</p>
-                  <Link
+                  <MagneticLink
                     href={`/work/${project.slug}`}
                     className="dark-wash mt-8 inline-flex items-center gap-2 rounded-full px-11 py-3.5 text-[13px] font-medium text-white transition-opacity hover:opacity-85"
                   >
                     Explore Project
                     <span aria-hidden>→</span>
-                  </Link>
+                  </MagneticLink>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -288,8 +300,8 @@ export default function HomePage() {
         <div className="rounded-2xl bg-[#141414] p-4 sm:p-8">
           <div className="grid items-center gap-12 rounded-2xl p-4 sm:p-8 lg:grid-cols-[550px_1fr]">
             <div className="grid grid-cols-2 sm:grid-cols-3">
-              {FULL_RANGE.map((cell) => (
-                <div key={cell.title} className="border border-white/[0.06] p-5 sm:min-h-[200px]">
+              {FULL_RANGE.map((cell, i) => (
+                <Reveal key={cell.title} delay={i * 0.06} className="border border-white/[0.06] p-5 sm:min-h-[200px]">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -304,29 +316,29 @@ export default function HomePage() {
                   </svg>
                   <h3 className="mt-4 text-[11px] font-bold uppercase tracking-wide text-white">{cell.title}</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/50">{cell.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
-            <div>
+            <Reveal delay={0.2}>
               <h2 className="text-4xl font-medium text-white lg:text-5xl">The Full Range.</h2>
               <p className="mt-4 text-lg text-white/70">
                 From first principles to final pixel — every discipline under one roof.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
+                <MagneticLink
                   href="/about"
                   className="rounded-full bg-white px-8 py-3.5 text-base font-medium text-ink transition-transform hover:scale-[1.03]"
                 >
                   How I Work
-                </Link>
-                <Link
+                </MagneticLink>
+                <MagneticLink
                   href="/archive"
                   className="rounded-full border border-white/40 px-8 py-3.5 text-base font-medium text-white transition-colors hover:border-white"
                 >
                   View Playbook
-                </Link>
+                </MagneticLink>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

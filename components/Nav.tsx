@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MagneticLink from "@/components/motion/MagneticLink";
 
 const LINKS = [
   { label: "Work", href: "/work" },
@@ -26,9 +27,10 @@ export default function Nav({
         </Link>
         <nav className="flex items-center gap-6 sm:gap-12">
           {LINKS.map(({ label, href }) => (
-            <Link
+            <MagneticLink
               key={label}
               href={href}
+              strength={0.4}
               className={`pb-1 text-xs font-medium tracking-[0.2px] transition-colors ${
                 active === label
                   ? light
@@ -40,7 +42,7 @@ export default function Nav({
               }`}
             >
               {label}
-            </Link>
+            </MagneticLink>
           ))}
         </nav>
       </div>

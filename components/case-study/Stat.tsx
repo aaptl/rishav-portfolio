@@ -1,3 +1,5 @@
+import Reveal from "@/components/motion/Reveal";
+
 export function StatRow({
   stats,
   tone = "light",
@@ -8,8 +10,8 @@ export function StatRow({
   const isDark = tone === "dark";
   return (
     <div className="grid gap-8 sm:grid-cols-3">
-      {stats.map((stat) => (
-        <div key={stat.label}>
+      {stats.map((stat, i) => (
+        <Reveal key={stat.label} delay={i * 0.08}>
           <p className={`text-4xl font-bold tracking-[-1px] ${isDark ? "text-white" : "text-ink"}`}>{stat.value}</p>
           <p className={`mt-2 text-sm font-medium ${isDark ? "text-white/70" : "text-[#555555]"}`}>{stat.label}</p>
           {stat.body && (
@@ -17,7 +19,7 @@ export function StatRow({
               {stat.body}
             </p>
           )}
-        </div>
+        </Reveal>
       ))}
     </div>
   );
