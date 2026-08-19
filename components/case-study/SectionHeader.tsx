@@ -1,3 +1,5 @@
+import Reveal from "@/components/motion/Reveal";
+
 export default function SectionHeader({
   eyebrow,
   title,
@@ -9,7 +11,7 @@ export default function SectionHeader({
 }) {
   const isDark = tone === "dark";
   return (
-    <div className="max-w-[720px]">
+    <Reveal className="max-w-[720px]">
       <p className={`text-[11px] font-medium uppercase tracking-[1px] ${isDark ? "text-white/40" : "text-[#888888]"}`}>
         - {eyebrow}
       </p>
@@ -20,6 +22,6 @@ export default function SectionHeader({
       >
         {title}
       </h2>
-    </div>
+    </Reveal>
   );
 }

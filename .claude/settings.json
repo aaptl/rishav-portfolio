@@ -67,7 +67,26 @@
       "Bash(curl -sI http://localhost:3000/images/introducing-india/01.gif)",
       "Bash(curl -s http://localhost:3000/work/introducing-india)",
       "Bash(curl -sL \"https://mir-s3-cdn-cf.behance.net/project_modules/1400/2d285a223483567.67f94776b2055.gif\" -o public/images/introducing-india/07.gif)",
-      "Bash(chromium-cli --session mobee)"
+      "Bash(chromium-cli --session mobee)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/work/pawle --max-time 10)",
+      "Bash(taskkill //F //IM node.exe //FI \"PID ne 29896\")",
+      "Bash(curl -s -o /dev/null -w \"3000: %{http_code}\\\\n\" http://127.0.0.1:3000/ --max-time 10)",
+      "Bash(tasklist)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:3000/work/pawle --max-time 30)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:3000/work/pawle --max-time 20)",
+      "Bash(node \"C:/Users/patel/AppData/Local/Temp/claude/c--work-Rishav-portfolio/b8d87c06-2107-4c24-901f-dbaf0d9067f7/scratchpad/screenshot.mjs\")",
+      "Bash(cp \"C:/Users/patel/AppData/Local/Temp/claude/c--work-Rishav-portfolio/b8d87c06-2107-4c24-901f-dbaf0d9067f7/scratchpad/screenshot.mjs\" \"c:/work/Rishav/portfolio/.scratch-screenshot.mjs\")",
+      "Bash(node .scratch-screenshot.mjs)",
+      "Bash(grep -n \"Hero \\\\*/\\\\|My Role \\\\*/\\\\|Breath quote \\\\*/\\\\|Product Strategy \\\\*/\\\\|Field Research \\\\*/\\\\|People I Designed For \\\\*/\\\\|A Turning Point \\\\*/\" \"c:/work/Rishav/portfolio/app/work/pawle/page.tsx\")",
+      "Bash(node .scratch-screenshot2.mjs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://127.0.0.1:3000/images/pawle/deep-dive/feature-a.png --max-time 15)",
+      "Bash(node .scratch-screenshot3.mjs)",
+      "Bash(grep -n \"Information Architecture \\\\*/\\\\|IA_VERSIONS.map\\\\|IA_NOTES.map\\\\|SERVICE_PILLS.map\" \"c:/work/Rishav/portfolio/app/work/pawle/page.tsx\")",
+      "Bash(node .scratch-ia.mjs)",
+      "Bash(node .scratch-tp.mjs)",
+      "Bash(node .scratch-check.mjs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:3000/work/pawle --max-time 3)",
+      "Bash(node -e \"console.log\\(require\\('playwright'\\) ? 'playwright available' : ''\\)\")"
     ],
     "additionalDirectories": [
       "c:\\work\\Rishav\\portfolio\\public\\images\\logos"

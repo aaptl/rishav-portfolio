@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import MagneticLink from "@/components/motion/MagneticLink";
 
 const SOCIALS = [
   { label: "Behance", href: "https://www.behance.net/rishavsingh46", icon: "/icons/behance.svg", size: 24 },
@@ -18,18 +18,18 @@ export default function Footer() {
             <p className="text-xs text-white/70">Product Designer &amp; Design Strategist</p>
           </div>
           <div className="flex flex-wrap items-center gap-8">
-            <Link href="/work" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
+            <MagneticLink href="/work" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
               Work
-            </Link>
-            <Link href="/archive" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
+            </MagneticLink>
+            <MagneticLink href="/archive" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
               Archive
-            </Link>
-            <Link href="/about" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
+            </MagneticLink>
+            <MagneticLink href="/about" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
               About
-            </Link>
-            <Link href="/contact" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
+            </MagneticLink>
+            <MagneticLink href="/contact" className="text-xs font-medium text-white/70 transition-colors hover:text-white">
               Contact
-            </Link>
+            </MagneticLink>
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6">
